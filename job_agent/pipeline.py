@@ -12,7 +12,7 @@ from .config import Profile, Settings, enforce_application_mode
 from .database import Database, row_to_job
 from .matching import score_job, score_title
 from .models import Job
-from .notifications import Notifier, available_notifiers, notify_jobs
+from .notifications import Notifier, TelegramNotifier, available_notifiers, notify_jobs, post_to_channel
 from .sources import REGISTRY, SourceAdapter
 from .text import now_iso
 
@@ -29,6 +29,7 @@ class RunReport:
     closed: int = 0
     expired: int = 0
     notified: int = 0
+    channel_posted: int = 0
     ai_analyzed: int = 0
     per_source: dict[str, int] = field(default_factory=dict)
     errors: list[str] = field(default_factory=list)
@@ -62,6 +63,7 @@ def run(
     adapters: Optional[list[SourceAdapter]] = None,
     notifiers: Optional[list[Notifier]] = None,
     ai_provider: Optional[ai_analysis.LLMProvider] = None,
+    channel_notifier: Optional[TelegramNotifier] = None,
 ) -> RunReport:
     enforce_application_mode(settings.application_mode)
     report = RunReport()
@@ -72,12 +74,17 @@ def run(
         if reason:
             report.skipped_sources.append(f"{adapter.name}: {reason}")
             continue
+        wait = _interval_remaining(db, adapter)
+        if wait:
+            report.skipped_sources.append(f"{adapter.name}: fetched recently; next fetch in about {wait}")
+            continue
         try:
             result = adapter.fetch()
         except Exception as exc:  # one broken adapter must never stop the run
             report.errors.append(f"{adapter.name}: unexpected {type(exc).__name__}")
             log.exception("Source %s crashed", adapter.name)
             continue
+        db.set_source_fetched(adapter.name)
         report.errors.extend(result.errors)
         report.fetched += len(result.jobs)
         report.per_source[adapter.name] = len(result.jobs)
@@ -139,8 +146,54 @@ def run(
             if len(delivered) < len(pending):
                 report.errors.append(f"notifications: {len(pending) - len(delivered)} not confirmed; will retry next run")
 
+    _post_channel(db, settings, report, channel_notifier)
+
     db.record_run(report.started_at, report.fetched, report.new, report.notified, report.errors)
     return report
+
+
+def _interval_remaining(db: Database, adapter: SourceAdapter) -> Optional[str]:
+    """Return a human-readable wait if the source's `min_interval_hours` has not passed, else None.
+
+    Lets busy sources run hourly while rate-limited ones (Remotive, Adzuna) run less often.
+    A 15-minute tolerance absorbs GitHub's late cron starts.
+    """
+    hours = float(adapter.config.get("min_interval_hours", 0) or 0)
+    last = db.source_last_fetched(adapter.name)
+    if hours <= 0 or not last:
+        return None
+    elapsed = datetime.now(timezone.utc) - datetime.fromisoformat(last)
+    remaining = timedelta(hours=hours) - elapsed - timedelta(minutes=15)
+    if remaining <= timedelta(0):
+        return None
+    mins = int(remaining.total_seconds() // 60) + 15
+    return f"{mins // 60}h {mins % 60}m"
+
+
+def _post_channel(db: Database, settings: Settings, report: RunReport,
+                  notifier: Optional[TelegramNotifier]) -> None:
+    if not settings.telegram_channel_id and notifier is None:
+        return
+    since = (datetime.now(timezone.utc) - timedelta(days=settings.channel_max_age_days)).isoformat(timespec="seconds")
+    pending = [row_to_job(r) for r in db.pending_channel_posts(since)]
+    batch = pending[: settings.channel_max_posts]
+    if settings.dry_run:
+        report.notes.append(f"Dry run: {len(batch)} channel post(s) would be published ({len(pending)} waiting)")
+        return
+    notifier = notifier or TelegramNotifier(chat_id=settings.telegram_channel_id)
+    if not notifier.configured():
+        report.notes.append("TELEGRAM_CHANNEL_ID is set but TELEGRAM_BOT_TOKEN is missing; channel posting skipped")
+        return
+    posted = post_to_channel(batch, notifier, settings.channel_footer, settings.post_delay_seconds)
+    for job_id in posted:
+        db.mark_channel_posted(job_id)
+    report.channel_posted = len(posted)
+    if len(posted) < len(batch):
+        report.errors.append(
+            f"channel: {len(batch) - len(posted)} post(s) not confirmed; check the bot is a channel admin. Will retry."
+        )
+    if len(pending) > len(batch):
+        report.notes.append(f"{len(pending) - len(batch)} more channel post(s) queued for the next runs")
 
 
 def format_report(report: RunReport) -> str:
@@ -149,7 +202,7 @@ def format_report(report: RunReport) -> str:
         f"- Fetched: {report.fetched} ({', '.join(f'{k}: {v}' for k, v in report.per_source.items()) or 'none'})",
         f"- Stored/updated relevant jobs: {report.stored} (new: {report.new}); skipped as irrelevant: {report.skipped_irrelevant}",
         f"- Marked closed: {report.closed}; expired: {report.expired}",
-        f"- Alerts sent: {report.notified}; AI analyses: {report.ai_analyzed}",
+        f"- Personal alerts sent: {report.notified}; channel posts: {report.channel_posted}; AI analyses: {report.ai_analyzed}",
     ]
     for note in report.notes:
         lines.append(f"- {note}")

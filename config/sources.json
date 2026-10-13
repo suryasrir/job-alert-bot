@@ -1,34 +1,107 @@
 {
   "_comment": "Edit this file to add companies or search terms. Board tokens are the company slug in the public job-board URL. Every entry was checked to return live postings on 2026-10-13; boards can disappear, and failures are logged and skipped.",
-  "search_terms": ["ios developer", "swift", "react native", "mobile developer"],
+  "search_terms": [
+    "ios developer",
+    "swift",
+    "react native",
+    "mobile developer"
+  ],
   "greenhouse": {
     "enabled": true,
-    "boards": ["groww", "razorpaysoftwareprivatelimited", "inmobi", "druva", "rubrik", "hackerrank",
-               "observeai", "databricks", "stripe", "okta", "gitlab", "twilio", "agoda", "coinbase", "toast", "airbnb"]
+    "boards": [
+      "groww",
+      "razorpaysoftwareprivatelimited",
+      "inmobi",
+      "druva",
+      "rubrik",
+      "hackerrank",
+      "observeai",
+      "databricks",
+      "stripe",
+      "okta",
+      "gitlab",
+      "twilio",
+      "agoda",
+      "coinbase",
+      "toast",
+      "airbnb"
+    ],
+    "min_interval_hours": 1
   },
   "lever": {
     "enabled": true,
-    "companies": ["meesho", "paytm", "zeta", "fampay", "cred", "spotify"]
+    "companies": [
+      "meesho",
+      "paytm",
+      "zeta",
+      "fampay",
+      "cred",
+      "spotify"
+    ],
+    "min_interval_hours": 1
   },
   "ashby": {
     "enabled": true,
-    "boards": ["sarvam", "atlan"]
+    "boards": [
+      "sarvam",
+      "atlan"
+    ],
+    "min_interval_hours": 1
   },
   "smartrecruiters": {
     "enabled": true,
-    "companies": ["BoschGroup", "Freshworks"],
+    "companies": [
+      "BoschGroup",
+      "Freshworks"
+    ],
     "country": "in",
-    "queries": ["ios", "mobile", "react native", "swift"]
+    "queries": [
+      "ios",
+      "mobile",
+      "react native",
+      "swift"
+    ],
+    "min_interval_hours": 2
   },
-  "remotive": {"enabled": true, "queries": ["ios", "swift", "react native"]},
-  "remoteok": {"enabled": true, "tags": ["ios", "swift", "react-native"]},
-  "arbeitnow": {"enabled": false, "_note": "Mostly European/German roles; disabled by default for an India-focused search.", "max_pages": 3},
+  "remotive": {
+    "enabled": true,
+    "queries": [
+      "ios",
+      "swift",
+      "react native"
+    ],
+    "min_interval_hours": 6
+  },
+  "remoteok": {
+    "enabled": true,
+    "tags": [
+      "ios",
+      "swift",
+      "react-native"
+    ],
+    "min_interval_hours": 2
+  },
+  "arbeitnow": {
+    "enabled": false,
+    "_note": "Mostly European/German roles; disabled by default for an India-focused search.",
+    "max_pages": 3,
+    "min_interval_hours": 6
+  },
   "adzuna": {
     "enabled": true,
     "_note": "Needs free ADZUNA_APP_ID and ADZUNA_APP_KEY from https://developer.adzuna.com. Skipped when keys are absent.",
     "country": "in",
-    "queries": ["ios developer", "react native developer", "swift developer"],
-    "locations": ["Hyderabad", ""],
-    "max_pages": 2
-  }
+    "queries": [
+      "ios developer",
+      "react native developer",
+      "swift developer"
+    ],
+    "locations": [
+      "Hyderabad",
+      ""
+    ],
+    "max_pages": 2,
+    "min_interval_hours": 6
+  },
+  "_comment_intervals": "min_interval_hours: the workflow runs hourly, but a source is fetched at most this often. Remotive asks for <=4 calls/day; Adzuna's free plan has daily/monthly call caps."
 }

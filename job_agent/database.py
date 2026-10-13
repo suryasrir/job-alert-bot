@@ -76,6 +76,16 @@ MIGRATIONS: list[str] = [
         errors TEXT
     );
     """,
+    # 2: public Telegram channel posting and per-source fetch intervals
+    """
+    ALTER TABLE jobs ADD COLUMN public_ok INTEGER NOT NULL DEFAULT 0;
+    ALTER TABLE jobs ADD COLUMN channel_posted_at TEXT;
+    CREATE INDEX idx_jobs_channel ON jobs(public_ok, channel_posted_at);
+    CREATE TABLE source_state (
+        source TEXT PRIMARY KEY,
+        last_fetched_at TEXT NOT NULL
+    );
+    """,
 ]
 
 JSON_FIELDS = ("required_skills", "score_breakdown", "match_reasons", "concerns", "unknowns")
@@ -83,7 +93,7 @@ JOB_COLUMNS = (
     "source", "source_job_id", "board", "title", "company", "description", "experience_text",
     "employment_type", "work_arrangement", "location", "city", "country", "salary_min", "salary_max",
     "salary_currency", "salary_period", "salary_text", "url", "apply_url", "posted_at", "closing_date",
-    "score", "match_category",
+    "score", "match_category", "public_ok",
 ) + JSON_FIELDS
 
 
@@ -249,6 +259,33 @@ class Database:
                 [(now, channel, i) for i in job_ids],
             )
 
+    # ---- public channel --------------------------------------------------------------
+    def pending_channel_posts(self, since_iso: str) -> list[sqlite3.Row]:
+        """Public-suitable open jobs not yet posted, posted (or first seen) after `since_iso`."""
+        return self.conn.execute(
+            "SELECT * FROM jobs WHERE public_ok = 1 AND channel_posted_at IS NULL AND duplicate_of IS NULL "
+            "AND status NOT IN ('closed','expired') AND COALESCE(posted_at, first_seen_at) >= ? "
+            "ORDER BY COALESCE(posted_at, first_seen_at) DESC, score DESC",
+            (since_iso,),
+        ).fetchall()
+
+    def mark_channel_posted(self, job_id: str) -> None:
+        with self.conn:
+            self.conn.execute("UPDATE jobs SET channel_posted_at = ? WHERE id = ?", (now_iso(), job_id))
+
+    # ---- per-source fetch intervals ---------------------------------------------------
+    def source_last_fetched(self, source: str) -> Optional[str]:
+        row = self.conn.execute("SELECT last_fetched_at FROM source_state WHERE source = ?", (source,)).fetchone()
+        return row["last_fetched_at"] if row else None
+
+    def set_source_fetched(self, source: str) -> None:
+        with self.conn:
+            self.conn.execute(
+                "INSERT INTO source_state (source, last_fetched_at) VALUES (?, ?) "
+                "ON CONFLICT(source) DO UPDATE SET last_fetched_at = excluded.last_fetched_at",
+                (source, now_iso()),
+            )
+
     # ---- AI / application prep ---------------------------------------------------
     def save_ai_analysis(self, job_id: str, analysis: dict[str, Any]) -> None:
         with self.conn:
@@ -303,6 +340,7 @@ def row_to_job(row: sqlite3.Row) -> Job:
     kwargs = {k: data.get(k) for k in Job.__dataclass_fields__ if k in data}
     for f in JSON_FIELDS:
         kwargs[f] = json.loads(data[f]) if data.get(f) else ([] if f != "score_breakdown" else {})
+    kwargs["public_ok"] = bool(data.get("public_ok"))
     kwargs["first_seen_at"] = data.get("first_seen_at")
     kwargs["last_seen_at"] = data.get("last_seen_at")
     return Job(**kwargs)

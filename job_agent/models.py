@@ -57,6 +57,9 @@ class Job:
     match_reasons: list[str] = field(default_factory=list)
     concerns: list[str] = field(default_factory=list)
     unknowns: list[str] = field(default_factory=list)
+    # True when the job suits the public channel audience (mobile role, India-eligible),
+    # independent of the personal profile's experience or salary.
+    public_ok: bool = False
 
     def validate(self) -> list[str]:
         """Return a list of validation problems (empty means valid)."""

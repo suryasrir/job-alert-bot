@@ -30,7 +30,15 @@ GENERIC_ENG_TITLE = re.compile(r"\b(software|frontend|front-end|full[\s-]?stack)
 # Technologies that indicate a different primary stack when required.
 OTHER_STACK = ["kotlin", "android", "flutter", "dart", "java", "xamarin", "ionic", "unity", "c++"]
 
-SENIOR_TITLE = re.compile(r"\b(senior|sr\.?|lead|staff|principal|architect|manager|head)\b", re.I)
+# Stricter title rules for the public channel: hands-on iOS / React Native / mobile dev roles only.
+PUBLIC_TITLE = re.compile(
+    r"\bios\b|\bswift(ui)?\b|\biphone\b|react[\s-]?native|"
+    r"\bmobile\b[^,/|]*\b(developer|engineer|sdk)\b|\bmobile app(lication)?s?\b", re.I)
+PUBLIC_EXCLUDE = re.compile(
+    r"\b(manager|director|head|vp|sales|marketing|designer|recruit\w*|account|analyst|support|"
+    r"qa|sdet|tester|java|\.net|android only)\b", re.I)
+
+SENIOR_TITLE =re.compile(r"\b(senior|sr\.?|lead|staff|principal|architect|manager|head)\b", re.I)
 REQUIRED_SECTION = re.compile(r"(requirements?|qualifications?|must have|what you.ll need|you have|required)", re.I)
 PREFERRED_SECTION = re.compile(r"(nice to have|preferred|bonus|good to have|plus)", re.I)
 
@@ -217,6 +225,7 @@ def score_job(job: Job, profile: Profile, now: Optional[datetime] = None) -> Job
         concerns.append(e_concern)
 
     l_frac, l_reason, l_concern = score_location(job, profile)
+    l_found = l_frac
     if l_frac is None:
         unknowns.append("location")
         l_frac = 0.4
@@ -270,6 +279,12 @@ def score_job(job: Job, profile: Profile, now: Optional[datetime] = None) -> Job
         category = "possible"
     else:
         category = "low"
+
+    # Public channel audience: any iOS / React Native / mobile developer who can work in India.
+    job.public_ok = bool(
+        PUBLIC_TITLE.search(job.title) and not PUBLIC_EXCLUDE.search(job.title)
+        and l_found is not None and l_found >= 0.65
+    )
 
     job.score = round(total, 1)
     job.score_breakdown = {k: round(v, 1) for k, v in parts.items()}

@@ -8,8 +8,10 @@ from __future__ import annotations
 import html
 import logging
 import os
+import re
 import smtplib
 import ssl
+import time
 from email.message import EmailMessage
 from typing import Optional, Protocol
 
@@ -71,6 +73,75 @@ def format_job(job: Job, ai_summary: Optional[str] = None) -> str:
     return "\n".join(lines)
 
 
+# Sources whose terms ask for visible attribution when their jobs are shared.
+SOURCE_CREDITS = {
+    "remotive": ("Remotive", "https://remotive.com"),
+    "remoteok": ("Remote OK", "https://remoteok.com"),
+    "adzuna": ("Adzuna", "https://www.adzuna.in"),
+    "arbeitnow": ("Arbeitnow", "https://www.arbeitnow.com"),
+}
+
+
+def _hashtags(job: Job) -> str:
+    t = f"{job.title} {job.description[:3000]}".lower()
+    tags = []
+    if re.search(r"\bios\b|\bswift\b|\biphone\b", t):
+        tags.append("#iOS")
+    if re.search(r"\bswiftui\b", t):
+        tags.append("#SwiftUI")
+    if re.search(r"react[\s-]?native", t):
+        tags.append("#ReactNative")
+    if re.search(r"\bmobile\b", job.title.lower()):
+        tags.append("#Mobile")
+    if job.city:
+        tags.append("#" + re.sub(r"\W", "", job.city))
+    if job.work_arrangement == "remote":
+        tags.append("#Remote")
+    if job.country == "India" or job.city:
+        tags.append("#IndiaJobs")
+    return " ".join(dict.fromkeys(tags))
+
+
+def format_public_post(job: Job, footer: str = "") -> str:
+    """Channel post for a general audience: job facts only, no personal score or notes."""
+    e = lambda s: html.escape(str(s), quote=False)
+    lines = [f"<b>{e(job.title)}</b>", f"🏢 {e(job.company)}"]
+    arrangement = "" if job.work_arrangement == "unknown" else f" · {job.work_arrangement.capitalize()}"
+    lines.append(f"📍 {e(job.location or 'Location not stated')}{e(arrangement)}")
+    if job.experience_text:
+        lines.append(f"🧭 Experience: {e(job.experience_text)}")
+    salary = _fmt_salary(job)
+    if salary:
+        lines.append(f"💰 {e(salary)}")
+    if job.employment_type:
+        lines.append(f"🕒 {e(job.employment_type)}")
+    if job.posted_at:
+        lines.append(f"🗓 Posted {e(job.posted_at[:10])}")
+    link = job.apply_url or job.url
+    lines.append(f'\n👉 <a href="{html.escape(link, quote=True)}">Apply on the employer\'s site</a>')
+    credit = SOURCE_CREDITS.get(job.source)
+    if credit:
+        lines.append(f'Source: <a href="{credit[1]}">{credit[0]}</a>')
+    tags = _hashtags(job)
+    if tags:
+        lines.append(f"\n{tags}")
+    if footer:
+        lines.append(e(footer))
+    return "\n".join(lines)
+
+
+def post_to_channel(jobs: list[Job], notifier: "TelegramNotifier", footer: str = "",
+                    delay: float = 3.0) -> list[str]:
+    """Post each job to the channel; returns IDs Telegram confirmed. Spaced to respect rate limits."""
+    posted = []
+    for i, job in enumerate(jobs):
+        if i:
+            time.sleep(delay)
+        if notifier.send(format_public_post(job, footer)):
+            posted.append(job.id)
+    return posted
+
+
 def format_summary(jobs: list[Job], sent: int) -> str:
     rest = jobs[sent:]
     lines = [f"<b>{len(rest)} more matching job(s)</b> (not sent individually):"]
@@ -96,7 +167,7 @@ class TelegramNotifier:
             return False
         url = f"https://api.telegram.org/bot{self.token}/sendMessage"
         payload = {"chat_id": self.chat_id, "text": text[:TELEGRAM_LIMIT], "parse_mode": "HTML",
-                   "disable_web_page_preview": True}
+                   "link_preview_options": {"is_disabled": True}}
         try:
             resp = request("POST", url, json=payload, retries=2)
             ok = resp.json().get("ok") is True

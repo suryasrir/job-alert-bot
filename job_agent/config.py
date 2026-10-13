@@ -110,6 +110,12 @@ class Settings:
     ai_max_jobs_per_run: int = 5
     telegram_token: Optional[str] = None
     telegram_chat_id: Optional[str] = None
+    # Public channel (e.g. "@my_ios_jobs" or "-1001234567890"); the bot must be a channel admin.
+    telegram_channel_id: Optional[str] = None
+    channel_max_posts: int = 5      # per run; hourly runs → up to 120 posts/day
+    channel_max_age_days: int = 3   # only post fresh jobs
+    channel_footer: str = ""        # e.g. "Join @my_ios_jobs for more"
+    post_delay_seconds: float = 3.0
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -131,6 +137,10 @@ class Settings:
             ai_max_jobs_per_run=env_int("AI_MAX_JOBS_PER_RUN", 5),
             telegram_token=os.environ.get("TELEGRAM_BOT_TOKEN") or None,
             telegram_chat_id=os.environ.get("TELEGRAM_CHAT_ID") or None,
+            telegram_channel_id=os.environ.get("TELEGRAM_CHANNEL_ID") or None,
+            channel_max_posts=env_int("CHANNEL_MAX_POSTS", 5),
+            channel_max_age_days=env_int("CHANNEL_MAX_AGE_DAYS", 3),
+            channel_footer=os.environ.get("CHANNEL_FOOTER", ""),
         )
 
 

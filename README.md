@@ -162,7 +162,8 @@ Each alert shows the title, company, location and work arrangement, experience, 
    | Secret | Required? |
    |---|---|
    | `TELEGRAM_BOT_TOKEN` | For alerts |
-   | `TELEGRAM_CHAT_ID` | For alerts |
+   | `TELEGRAM_CHAT_ID` | For personal alerts |
+   | `TELEGRAM_CHANNEL_ID` | For the public channel, e.g. `@ios_jobs_india` |
    | `CANDIDATE_PROFILE_JSON` | Recommended. Without it, the public sample profile is used and salary matching is off. |
    | `ADZUNA_APP_ID`, `ADZUNA_APP_KEY` | Optional. Adds India-wide search. |
    | `OPENAI_API_KEY` | Optional. Paid. |
@@ -179,18 +180,37 @@ The workflow runs the tests first, then discovery. A single failing source shows
 
 ## Schedule (UTC and IST)
 
-GitHub cron uses **UTC**. The default `30 */6 * * *` runs at:
+GitHub cron uses **UTC**. The default `17 * * * *` runs **every hour** at minute 17 UTC, which is minute 47 of every hour in IST (UTC+5:30).
 
-| UTC | IST (UTC+5:30) |
+Some sources limit how often you may call them, so each source has a `min_interval_hours` in `config/sources.json`. A source is skipped until its interval has passed:
+
+| Source | Fetched at most every |
 |---|---|
-| 00:30 | 06:00 |
-| 06:30 | 12:00 |
-| 12:30 | 18:00 |
-| 18:30 | 00:00 |
+| Greenhouse, Lever, Ashby | 1 hour |
+| SmartRecruiters, RemoteOK | 2 hours |
+| Remotive (asks for at most 4 calls a day), Adzuna (free plan has call caps) | 6 hours |
 
-To change it, edit the `cron:` line in `.github/workflows/jobs.yml`. For example, `30 2,8,14 * * *` runs at 08:00, 14:00 and 20:00 IST. Scheduled runs often start 5–30 minutes late. GitHub also pauses schedules after 60 days with no activity in a public repository; re-enable them from the Actions tab.
+To change the schedule, edit the `cron:` line in `.github/workflows/jobs.yml`. For example, `30 */6 * * *` runs every 6 hours (06:00, 12:00, 18:00 and 00:00 IST). Scheduled runs often start 5–30 minutes late. GitHub also pauses schedules after 60 days with no activity in a public repository; re-enable them from the Actions tab.
 
-**Free usage:** public repositories get free Actions minutes. A private repository on the Free plan gets 2,000 minutes a month. Each run takes about 1–3 minutes, so 4 runs a day comes to roughly 120–360 minutes a month.
+**Free usage:** public repositories get free Actions minutes. A private repository on the Free plan gets only 2,000 minutes a month. Hourly runs take about 1–2 minutes each, roughly 700–1,500 minutes a month, so keep the repository public or switch to every 2 hours (`17 */2 * * *`).
+
+---
+
+## Public Telegram channel
+
+Besides personal alerts, the bot can post jobs to a public Telegram channel that anyone can join.
+
+**What gets posted:** hands-on iOS, Swift, SwiftUI, React Native and mobile-developer roles that are in India or open to remote workers in India, posted in the last 3 days. The bot judges these for a general audience: it ignores the personal profile's experience and salary, and skips managers, QA, designers, Java and similar roles.
+
+**What each post contains:** title, company, location, experience asked for, salary (if listed), job type, posting date, the apply link, hashtags (`#iOS #Hyderabad #Remote …`) and an optional footer such as "Join @your_channel". It never shows personal scores or notes. Jobs from Remotive, Remote OK and Adzuna show a "Source:" credit, as their terms require.
+
+**Setup:**
+1. In Telegram: **New Channel**, give it a name, make it **Public**, and choose a username such as `ios_jobs_india`.
+2. Open the channel → **Administrators** → **Add Admin** → search for your bot → allow **Post Messages**.
+3. Add a GitHub secret `TELEGRAM_CHANNEL_ID` = `@ios_jobs_india` (your channel's username with `@`).
+4. Optionally add these GitHub **variables**: `CHANNEL_FOOTER` (for example `🔔 Join @ios_jobs_india for daily iOS jobs`) and `CHANNEL_MAX_POSTS` (default 5 per run).
+
+Each job is posted only once. Posts are spaced 3 seconds apart to stay within Telegram's limits. A post that fails is retried next run, and the run summary says "check the bot is a channel admin".
 
 ---
 

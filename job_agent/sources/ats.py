@@ -205,7 +205,10 @@ class SmartRecruitersSource(SourceAdapter):
 
     def _parse(self, j: dict[str, Any], company: str) -> Job:
         loc = j.get("location") or {}
-        location = loc.get("fullLocation") or ", ".join(x for x in (loc.get("city"), loc.get("country")) if x)
+        raw = loc.get("fullLocation") or ", ".join(x for x in (loc.get("city"), loc.get("country")) if x)
+        # "bangalore, , India" -> "Bangalore, India"
+        location = ", ".join(p.strip().title() if p.strip().islower() else p.strip()
+                             for p in raw.split(",") if p.strip())
         arrangement = "remote" if loc.get("remote") else "hybrid" if loc.get("hybrid") else "onsite" if loc.get("city") else "unknown"
         level = (j.get("experienceLevel") or {}).get("label")
         return Job(
