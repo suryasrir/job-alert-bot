@@ -30,13 +30,30 @@ GENERIC_ENG_TITLE = re.compile(r"\b(software|frontend|front-end|full[\s-]?stack)
 # Technologies that indicate a different primary stack when required.
 OTHER_STACK = ["kotlin", "android", "flutter", "dart", "java", "xamarin", "ionic", "unity", "c++"]
 
-# Stricter title rules for the public channel: hands-on iOS / React Native / mobile dev roles only.
+# Public channel: hands-on software development roles of any stack (iOS, Android, React Native,
+# .NET, Node.js, Java, Python, full stack, frontend, backend, ...). Independent of the personal profile.
+_TECH = (r"software|application|app|apps|mobile|web|front[\s-]?end|back[\s-]?end|full[\s-]?stack|platform|"
+         r"ios|android|swift|kotlin|flutter|react|react[\s-]?native|angular|vue|node(?:\.?js)?|"
+         r"\.net|dotnet|c#|java|python|django|golang|go|ruby|rails|php|laravel|scala|rust|c\+\+|"
+         r"devops|cloud|sre|data|ml|ai|embedded|firmware|game|unity|salesforce|sap|qa|test|automation|sdet")
 PUBLIC_TITLE = re.compile(
-    r"\bios\b|\bswift(ui)?\b|\biphone\b|react[\s-]?native|"
-    r"\bmobile\b[^,/|]*\b(developer|engineer|sdk)\b|\bmobile app(lication)?s?\b", re.I)
+    r"\b(developer|programmer|sde|swe|sdet)\b|"
+    r"(?<![a-z])(" + _TECH + r")(?![a-z])[\w\s/.+#-]{0,25}?\b(engineer|developer|dev|architect|intern|trainee)\b",
+    re.I)
 PUBLIC_EXCLUDE = re.compile(
-    r"\b(manager|director|head|vp|sales|marketing|designer|recruit\w*|account|analyst|support|"
-    r"qa|sdet|tester|java|\.net|android only)\b", re.I)
+    r"\b(manager|director|head|vp|vice president|chief|cto|sales|marketing|designer|recruit\w*|"
+    r"account|analyst|customer support|support engineer|business development|consultant|"
+    r"hardware|mechanical|electrical|civil|chemical|mechatronics)\b", re.I)
+
+
+def public_location_ok(job: Job) -> bool:
+    """India-based, or remote and open to India (or eligibility not restricted)."""
+    loc = (job.location or "").lower()
+    in_india = job.country == "India" or mentions_india(loc)
+    if job.work_arrangement == "remote":
+        stripped = re.sub(r"[()\s-]|remote", "", loc)
+        return in_india or not stripped or bool(REMOTE_INDIA.search(loc) or REMOTE_REGION.search(loc))
+    return in_india
 
 SENIOR_TITLE =re.compile(r"\b(senior|sr\.?|lead|staff|principal|architect|manager|head)\b", re.I)
 REQUIRED_SECTION = re.compile(r"(requirements?|qualifications?|must have|what you.ll need|you have|required)", re.I)
@@ -225,7 +242,7 @@ def score_job(job: Job, profile: Profile, now: Optional[datetime] = None) -> Job
         concerns.append(e_concern)
 
     l_frac, l_reason, l_concern = score_location(job, profile)
-    l_found = l_frac
+
     if l_frac is None:
         unknowns.append("location")
         l_frac = 0.4
@@ -280,10 +297,9 @@ def score_job(job: Job, profile: Profile, now: Optional[datetime] = None) -> Job
     else:
         category = "low"
 
-    # Public channel audience: any iOS / React Native / mobile developer who can work in India.
+    # Public channel audience: any software developer who can work in India.
     job.public_ok = bool(
-        PUBLIC_TITLE.search(job.title) and not PUBLIC_EXCLUDE.search(job.title)
-        and l_found is not None and l_found >= 0.65
+        PUBLIC_TITLE.search(job.title) and not PUBLIC_EXCLUDE.search(job.title) and public_location_ok(job)
     )
 
     job.score = round(total, 1)

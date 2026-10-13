@@ -125,3 +125,13 @@ def test_custom_weights_still_bounded(profile):
     profile.weights = {"title": 50, "skills": 50, "experience": 0, "location": 0, "salary": 0, "recency": 0}
     job = score_job(make_job(), profile)
     assert 0 <= job.score <= 100
+
+
+def test_string_and_placeholder_salaries(profile):
+    job = make_job(salary_min="1", salary_max="1,500,000", salary_currency="INR", salary_period="year")
+    assert job.salary_min is None and job.salary_max == 1_500_000
+    scored = score_job(job, profile)
+    assert scored.score_breakdown["salary"] > 0
+    junk = make_job(salary_min="competitive", salary_max=None, salary_currency="INR")
+    assert junk.salary_min is None and junk.salary_currency is None
+    assert 0 <= score_job(junk, profile).score <= 100

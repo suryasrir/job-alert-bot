@@ -10,7 +10,8 @@ from job_agent.config import Settings
 from job_agent.pipeline import run
 from job_agent.sources import REGISTRY
 from job_agent.sources.aggregators import AdzunaSource, RemoteOKSource, RemotiveSource
-from job_agent.sources.ats import AshbySource, GreenhouseSource, LeverSource, SmartRecruitersSource
+from job_agent.sources.ats import (AshbySource, GreenhouseSource, LeverSource, RecruiteeSource,
+                                   SmartRecruitersSource, WorkableSource)
 
 GREENHOUSE = {"jobs": [{
     "id": 111, "title": "iOS Engineer", "company_name": "Acme",
@@ -183,4 +184,47 @@ def test_malformed_json(monkeypatch):
 
 
 def test_registry_has_all_sources():
-    assert {"greenhouse", "lever", "ashby", "smartrecruiters", "remotive", "remoteok", "arbeitnow", "adzuna"} <= set(REGISTRY)
+    assert {"greenhouse", "lever", "ashby", "recruitee", "workable", "smartrecruiters", "remotive", "remoteok", "arbeitnow", "adzuna"} <= set(REGISTRY)
+
+
+RECRUITEE = {"offers": [{
+    "id": 2772826, "title": "IOS Engineer", "company_name": "Lenskart", "status": "published",
+    "careers_url": "https://lenskartcareers.recruitee.com/o/ios-engineer",
+    "careers_apply_url": "https://lenskartcareers.recruitee.com/o/ios-engineer/c/new",
+    "location": "Bangalore, Karnātaka, India", "city": "Bangalore", "country": "India", "country_code": "IN",
+    "remote": False, "hybrid": False, "on_site": True, "published_at": "2026-10-06 10:37:53 UTC",
+    "employment_type_code": "fulltime_permanent", "description": "<p>Build iOS apps in Swift</p>",
+    "requirements": "<ul><li>3+ years of experience</li></ul>",
+    "salary": {"min": None, "max": None, "period": None, "currency": None}, "close_at": None,
+}, {"id": 2, "title": "Draft", "status": "draft", "careers_url": "https://x"}]}
+
+WORKABLE = {"name": "Apna", "jobs": [{
+    "title": "SDE II - iOS", "shortcode": "ABC123", "employment_type": "Full-time", "telecommuting": False,
+    "url": "https://apply.workable.com/j/ABC123", "application_url": "https://apply.workable.com/j/ABC123/apply",
+    "published_on": "2026-10-11", "country": "India", "city": "Bengaluru", "state": "Karnataka",
+    "locations": [{"country": "India", "countryCode": "IN", "city": "Bengaluru", "region": "Karnataka"}],
+    "description": "<p>Swift, UIKit</p>", "experience": "Mid-Senior level",
+}, {"title": "Broken"}]}
+
+
+def test_recruitee(monkeypatch):
+    monkeypatch.setattr("job_agent.sources.ats.get_json", fake_get({"recruitee.com": RECRUITEE}))
+    result = RecruiteeSource({"companies": ["lenskartcareers"]}).fetch()
+    assert len(result.jobs) == 1  # draft skipped
+    job = result.jobs[0]
+    assert job.company == "Lenskart" and job.city == "Bengaluru" and job.country == "India"
+    assert job.work_arrangement == "onsite"
+    assert job.posted_at == "2026-10-06T10:37:53+00:00"
+    assert "3+ years" in job.description and "<li>" not in job.description
+    assert "lenskartcareers" in result.complete_boards
+
+
+def test_workable(monkeypatch):
+    monkeypatch.setattr("job_agent.sources.ats.get_json", fake_get({"workable.com": WORKABLE}))
+    monkeypatch.setattr("job_agent.sources.ats.time.sleep", lambda *_: None)
+    result = WorkableSource({"companies": ["apna"]}).fetch()
+    assert [j.title for j in result.jobs] == ["SDE II - iOS"]
+    job = result.jobs[0]
+    assert job.company == "Apna" and job.city == "Bengaluru" and job.country == "India"
+    assert job.apply_url.endswith("/apply") and job.posted_at.startswith("2026-10-11")
+    assert any("malformed" in e for e in result.errors)

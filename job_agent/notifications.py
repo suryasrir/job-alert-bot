@@ -82,17 +82,35 @@ SOURCE_CREDITS = {
 }
 
 
+# (pattern checked against the title, hashtag). Title only, so tags describe the role itself.
+STACK_TAGS = [
+    (r"\bios\b|\bswift\b|\biphone\b", "#iOS"),
+    (r"\bandroid\b|\bkotlin\b", "#Android"),
+    (r"react[\s-]?native", "#ReactNative"),
+    (r"\bflutter\b", "#Flutter"),
+    (r"\bmobile\b", "#Mobile"),
+    (r"\.net\b|\bdotnet\b|\bc#", "#DotNet"),
+    (r"\bnode(\.?js)?\b", "#NodeJS"),
+    (r"\bjava\b(?!script)", "#Java"),
+    (r"\bpython\b|\bdjango\b", "#Python"),
+    (r"\bgolang\b|\bgo\b", "#Golang"),
+    (r"\bphp\b|\blaravel\b", "#PHP"),
+    (r"\bfull[\s-]?stack\b", "#FullStack"),
+    (r"\bfront[\s-]?end\b|\breact(?![\s-]?native)\b|\bangular\b|\bvue\b", "#Frontend"),
+    (r"\bback[\s-]?end\b", "#Backend"),
+    (r"\bdevops\b|\bsre\b|\bcloud\b", "#DevOps"),
+    (r"\bdata\b", "#Data"),
+    (r"\bml\b|\bai\b|machine learning", "#AI"),
+    (r"\bqa\b|\btest|\bsdet\b|automation", "#QA"),
+    (r"\bintern(ship)?\b|\bfresher\b|\bgraduate\b", "#Freshers"),
+]
+
+
 def _hashtags(job: Job) -> str:
-    t = f"{job.title} {job.description[:3000]}".lower()
-    tags = []
-    if re.search(r"\bios\b|\bswift\b|\biphone\b", t):
-        tags.append("#iOS")
-    if re.search(r"\bswiftui\b", t):
-        tags.append("#SwiftUI")
-    if re.search(r"react[\s-]?native", t):
-        tags.append("#ReactNative")
-    if re.search(r"\bmobile\b", job.title.lower()):
-        tags.append("#Mobile")
+    title = job.title.lower()
+    tags = [tag for pattern, tag in STACK_TAGS if re.search(pattern, title)]
+    if not tags:
+        tags.append("#SoftwareJobs")
     if job.city:
         tags.append("#" + re.sub(r"\W", "", job.city))
     if job.work_arrangement == "remote":

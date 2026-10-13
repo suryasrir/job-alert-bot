@@ -269,6 +269,13 @@ class Database:
             (since_iso,),
         ).fetchall()
 
+    def recently_posted_titles(self, days: int = 14) -> set[tuple[str, str]]:
+        """(company, title) keys already posted to the channel recently, to avoid look-alike repeats."""
+        rows = self.conn.execute(
+            "SELECT company, title FROM jobs WHERE channel_posted_at >= datetime('now', ?)", (f"-{days} days",)
+        ).fetchall()
+        return {(normalize_key(r["company"]), normalize_key(r["title"])) for r in rows}
+
     def mark_channel_posted(self, job_id: str) -> None:
         with self.conn:
             self.conn.execute("UPDATE jobs SET channel_posted_at = ? WHERE id = ?", (now_iso(), job_id))

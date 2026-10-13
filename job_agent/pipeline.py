@@ -14,7 +14,7 @@ from .matching import score_job, score_title
 from .models import Job
 from .notifications import Notifier, TelegramNotifier, available_notifiers, notify_jobs, post_to_channel
 from .sources import REGISTRY, SourceAdapter
-from .text import now_iso
+from .text import normalize_key, now_iso
 
 log = logging.getLogger(__name__)
 
@@ -52,7 +52,7 @@ def build_adapters(sources_cfg: dict, only: Optional[list[str]] = None) -> list[
 
 def _worth_storing(job: Job, profile: Profile) -> bool:
     title_frac, _ = score_title(job, profile)
-    return title_frac > 0 or (job.score or 0) >= profile.thresholds["store_min"]
+    return job.public_ok or title_frac > 0 or (job.score or 0) >= profile.thresholds["store_min"]
 
 
 def run(
@@ -91,7 +91,11 @@ def run(
 
         seen_by_board: dict[str, set[str]] = {}
         for job in result.jobs:
-            score_job(job, profile)
+            try:
+                score_job(job, profile)
+            except Exception as exc:  # one odd record must never stop the run
+                report.errors.append(f"{adapter.name}: could not score '{job.title[:40]}' ({type(exc).__name__})")
+                continue
             if not _worth_storing(job, profile):
                 report.skipped_irrelevant += 1
                 # Still record existing jobs as seen so they are not marked closed.
@@ -175,7 +179,17 @@ def _post_channel(db: Database, settings: Settings, report: RunReport,
     if not settings.telegram_channel_id and notifier is None:
         return
     since = (datetime.now(timezone.utc) - timedelta(days=settings.channel_max_age_days)).isoformat(timespec="seconds")
-    pending = [row_to_job(r) for r in db.pending_channel_posts(since)]
+    # Same company + same title posted recently (or twice in this batch) looks like spam: retire repeats.
+    seen = db.recently_posted_titles()
+    pending: list[Job] = []
+    for job in (row_to_job(r) for r in db.pending_channel_posts(since)):
+        key = (normalize_key(job.company), normalize_key(job.title))
+        if key in seen:
+            if not settings.dry_run:
+                db.mark_channel_posted(job.id)
+            continue
+        seen.add(key)
+        pending.append(job)
     batch = pending[: settings.channel_max_posts]
     if settings.dry_run:
         report.notes.append(f"Dry run: {len(batch)} channel post(s) would be published ({len(pending)} waiting)")

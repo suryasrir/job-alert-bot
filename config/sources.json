@@ -1,10 +1,13 @@
 {
-  "_comment": "Edit this file to add companies or search terms. Board tokens are the company slug in the public job-board URL. Every entry was checked to return live postings on 2026-10-13; boards can disappear, and failures are logged and skipped.",
+  "_comment": "Edit this file to add companies or search terms. Board tokens are the company slug in the public job-board URL. Entries were checked to return live postings on 2026-10-13; boards can disappear, and failures are logged and skipped.",
   "search_terms": [
+    "software developer",
     "ios developer",
-    "swift",
-    "react native",
-    "mobile developer"
+    "android developer",
+    "react native developer",
+    "full stack developer",
+    ".net developer",
+    "node.js developer"
   ],
   "greenhouse": {
     "enabled": true,
@@ -24,7 +27,9 @@
       "agoda",
       "coinbase",
       "toast",
-      "airbnb"
+      "airbnb",
+      "glance",
+      "truecaller"
     ],
     "min_interval_hours": 1
   },
@@ -36,7 +41,10 @@
       "zeta",
       "fampay",
       "cred",
-      "spotify"
+      "spotify",
+      "mindtickle",
+      "pocketfm",
+      "dozee"
     ],
     "min_interval_hours": 1
   },
@@ -48,6 +56,22 @@
     ],
     "min_interval_hours": 1
   },
+  "recruitee": {
+    "enabled": true,
+    "companies": [
+      "lenskartcareers"
+    ],
+    "min_interval_hours": 1
+  },
+  "workable": {
+    "enabled": true,
+    "companies": [
+      "apna",
+      "1mg"
+    ],
+    "min_interval_hours": 3,
+    "_note": "Workable rate-limits bursts; keep this list short-ish and the interval >= 3h."
+  },
   "smartrecruiters": {
     "enabled": true,
     "companies": [
@@ -56,30 +80,27 @@
     ],
     "country": "in",
     "queries": [
-      "ios",
-      "mobile",
-      "react native",
-      "swift"
+      "developer",
+      "software engineer",
+      "full stack",
+      "android",
+      "ios"
     ],
     "min_interval_hours": 2
   },
   "remotive": {
     "enabled": true,
-    "queries": [
-      "ios",
-      "swift",
-      "react native"
-    ],
-    "min_interval_hours": 6
+    "category": "software-dev",
+    "min_interval_hours": 6,
+    "_note": "One call per run for all software-dev jobs; Remotive asks for at most ~4 calls/day."
   },
   "remoteok": {
     "enabled": true,
     "tags": [
-      "ios",
-      "swift",
-      "react-native"
+      ""
     ],
-    "min_interval_hours": 2
+    "min_interval_hours": 2,
+    "_note": "Empty tag = latest jobs of all kinds; titles are filtered by the bot."
   },
   "arbeitnow": {
     "enabled": false,
@@ -89,19 +110,24 @@
   },
   "adzuna": {
     "enabled": true,
-    "_note": "Needs free ADZUNA_APP_ID and ADZUNA_APP_KEY from https://developer.adzuna.com. Skipped when keys are absent.",
+    "_note": "Needs free ADZUNA_APP_ID and ADZUNA_APP_KEY from https://developer.adzuna.com. Skipped when keys are absent. 7 queries x 3 locations x 1 page = 21 calls per fetch, every 8h = ~63/day (check your Adzuna plan's daily/monthly caps).",
     "country": "in",
     "queries": [
+      "software developer",
       "ios developer",
+      "android developer",
       "react native developer",
-      "swift developer"
+      "full stack developer",
+      ".net developer",
+      "node.js developer"
     ],
     "locations": [
       "Hyderabad",
+      "Bangalore",
       ""
     ],
-    "max_pages": 2,
-    "min_interval_hours": 6
+    "max_pages": 1,
+    "min_interval_hours": 8
   },
   "_comment_intervals": "min_interval_hours: the workflow runs hourly, but a source is fetched at most this often. Remotive asks for <=4 calls/day; Adzuna's free plan has daily/monthly call caps."
 }

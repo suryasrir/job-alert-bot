@@ -29,9 +29,13 @@ class RemotiveSource(SourceAdapter):
     def fetch(self) -> FetchResult:
         result = FetchResult()
         seen: set[Any] = set()
-        for q in self.config.get("queries", ["ios"]):
+        # One category call (all software-dev jobs) keeps us within Remotive's ~4 calls/day guidance.
+        searches = ([{"category": self.config["category"]}] if self.config.get("category")
+                    else [{"search": q} for q in self.config.get("queries", ["ios"])])
+        for params in searches:
+            q = next(iter(params.values()))
             try:
-                jobs = get_json("https://remotive.com/api/remote-jobs?" + urlencode({"search": q}))["jobs"]
+                jobs = get_json("https://remotive.com/api/remote-jobs?" + urlencode(params))["jobs"]
                 if not isinstance(jobs, list):
                     raise TypeError
             except FetchError as exc:
@@ -72,7 +76,7 @@ class RemoteOKSource(SourceAdapter):
         seen: set[Any] = set()
         for tag in self.config.get("tags", ["ios"]):
             try:
-                data = get_json("https://remoteok.com/api?" + urlencode({"tag": tag}))
+                data = get_json("https://remoteok.com/api" + ("?" + urlencode({"tag": tag}) if tag else ""))
                 if not isinstance(data, list):
                     raise TypeError
             except FetchError as exc:

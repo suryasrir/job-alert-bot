@@ -49,12 +49,12 @@ def test_public_ok_rules(profile):
     assert not score_job(make_job(location="Remote - USA", city=None, country=None, work_arrangement="remote"), profile).public_ok
     # Not a mobile role
     assert not score_job(make_job(title="Data Scientist"), profile).public_ok
-    # Generic title is not enough
-    assert not score_job(make_job(title="Software Engineer", description="We use Swift and iOS"), profile).public_ok
+    # Any hands-on software role qualifies for the public channel
+    assert score_job(make_job(title="Software Engineer", description="We use Swift and iOS"), profile).public_ok
 
 
 def test_channel_posts_once_and_respects_limit(db, profile):
-    jobs = [make_job(source_job_id=str(i), url=f"https://e.com/{i}") for i in range(4)]
+    jobs = [make_job(source_job_id=str(i), url=f"https://e.com/{i}", title=f"iOS Developer {i}") for i in range(4)]
     channel = FakeNotifier()
     src = StaticSource(jobs)
     r1 = run(profile, _settings(channel_max_posts=3), {}, db, adapters=[src], notifiers=[], channel_notifier=channel)
@@ -133,10 +133,52 @@ def test_migration_from_v1_keeps_data(tmp_path, profile):
 
 def test_public_title_rules(profile):
     ok = ["iOS Developer", "Senior Mobile APP (IOS/AOS) Developer", "React Native Engineer",
-          "Mobile Software Engineer", "SwiftUI Developer", "Mobile App Developer"]
-    bad = ["Solution Manager - Custom Web & Mobile Solutions", "Java Application Developer",
-           "Engineering Manager, Mobile", "iOS QA Engineer", "Mobile Product Designer"]
+          "Android Developer", ".NET Developer", "Node.js Backend Engineer", "Full Stack Developer",
+          "Java Application Developer", "Software Engineer II", "SDE 1", "Python Developer",
+          "Frontend Engineer (React)", "QA Automation Engineer", "Software Development Intern"]
+    bad = ["Solution Manager - Custom Web & Mobile Solutions", "Engineering Manager, Mobile",
+           "Mobile Product Designer", "Data Analyst", "Sales Engineer", "Customer Support Engineer",
+           "Accountant", "Civil Engineer", "Head of Engineering", "Marketing Manager"]
     for t in ok:
         assert score_job(make_job(title=t), profile).public_ok, t
     for t in bad:
         assert not score_job(make_job(title=t), profile).public_ok, t
+
+
+def test_public_location_rules(profile):
+    assert score_job(make_job(title="Android Developer", location="Remote", city=None, country=None,
+                              work_arrangement="remote"), profile).public_ok
+    assert score_job(make_job(title="Android Developer", location="Remote (APAC)", city=None, country=None,
+                              work_arrangement="remote"), profile).public_ok
+    assert not score_job(make_job(title="Android Developer", location="Remote (USA only)", city=None,
+                                  country=None, work_arrangement="remote"), profile).public_ok
+    assert not score_job(make_job(title="Android Developer", location="Berlin, Germany", city=None,
+                                  country=None, work_arrangement="onsite"), profile).public_ok
+
+
+def test_non_ios_public_job_is_stored_and_posted(db, profile):
+    job = make_job(title="Node.js Developer", description="Node, Express, MongoDB")
+    channel = FakeNotifier()
+    r = run(profile, _settings(), {}, db, adapters=[StaticSource([job])], notifiers=[], channel_notifier=channel)
+    assert r.stored == 1 and r.channel_posted == 1
+    assert "#NodeJS" in channel.sent[0]
+
+
+def test_stack_hashtags(profile):
+    from job_agent.notifications import _hashtags
+    assert "#DotNet" in _hashtags(make_job(title="Senior .NET Developer"))
+    assert "#Android" in _hashtags(make_job(title="Android Engineer (Kotlin)"))
+    assert "#FullStack" in _hashtags(make_job(title="Full-Stack Developer"))
+    assert "#Java" in _hashtags(make_job(title="Java Developer")) and "#Java" not in _hashtags(make_job(title="JavaScript Developer"))
+
+
+def test_lookalike_repeats_not_posted(db, profile):
+    jobs = [make_job(source_job_id=str(i), url=f"https://e.com/{i}", title="Test Engineer - HiL") for i in range(3)]
+    channel = FakeNotifier()
+    run(profile, _settings(), {}, db, adapters=[StaticSource(jobs)], notifiers=[], channel_notifier=channel)
+    run(profile, _settings(), {}, db, adapters=[StaticSource(jobs)], notifiers=[], channel_notifier=channel)
+    assert len(channel.sent) == 1
+
+
+def test_hardware_roles_excluded(profile):
+    assert not score_job(make_job(title="Senior Hardware Module Developer - Braking"), profile).public_ok

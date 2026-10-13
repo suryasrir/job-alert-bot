@@ -21,6 +21,14 @@ STATUSES = (
 WORK_ARRANGEMENTS = ("remote", "hybrid", "onsite", "unknown")
 
 
+def _amount(value: Any) -> Optional[float]:
+    try:
+        number = float(str(value).replace(",", "").strip()) if value not in (None, "") else None
+    except ValueError:
+        return None
+    return number if number is not None and number >= 100 else None
+
+
 @dataclass
 class Job:
     source: str
@@ -60,6 +68,13 @@ class Job:
     # True when the job suits the public channel audience (mobile role, India-eligible),
     # independent of the personal profile's experience or salary.
     public_ok: bool = False
+
+    def __post_init__(self) -> None:
+        # Sources send salaries as numbers, strings or placeholders like "1"; keep only real amounts.
+        self.salary_min = _amount(self.salary_min)
+        self.salary_max = _amount(self.salary_max)
+        if self.salary_min is None and self.salary_max is None:
+            self.salary_currency = self.salary_currency if self.salary_text else None
 
     def validate(self) -> list[str]:
         """Return a list of validation problems (empty means valid)."""

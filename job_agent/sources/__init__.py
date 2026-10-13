@@ -1,13 +1,13 @@
 """Source adapter registry. To add a source, subclass SourceAdapter and register it here."""
 
 from .aggregators import AdzunaSource, ArbeitnowSource, RemoteOKSource, RemotiveSource
-from .ats import AshbySource, GreenhouseSource, LeverSource, SmartRecruitersSource
+from .ats import AshbySource, GreenhouseSource, LeverSource, RecruiteeSource, SmartRecruitersSource, WorkableSource
 from .base import FetchResult, SourceAdapter
 
 REGISTRY: dict[str, type[SourceAdapter]] = {
     cls.name: cls
     for cls in (
-        GreenhouseSource, LeverSource, AshbySource, SmartRecruitersSource,
+        GreenhouseSource, LeverSource, AshbySource, RecruiteeSource, WorkableSource, SmartRecruitersSource,
         RemotiveSource, RemoteOKSource, ArbeitnowSource, AdzunaSource,
     )
 }

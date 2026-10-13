@@ -173,6 +173,112 @@ class AshbySource(SourceAdapter):
         )
 
 
+class RecruiteeSource(SourceAdapter):
+    """Recruitee public careers API: https://docs.recruitee.com/reference/offers"""
+
+    name = "recruitee"
+    complete_listing = True
+
+    def fetch(self) -> FetchResult:
+        result = FetchResult()
+        for company in self.config.get("companies", []):
+            url = f"https://{quote(company)}.recruitee.com/api/offers/"
+            try:
+                offers = get_json(url)["offers"]
+                if not isinstance(offers, list):
+                    raise TypeError
+            except FetchError as exc:
+                result.errors.append(f"recruitee:{company}: {exc}")
+                continue
+            except (KeyError, TypeError):
+                result.errors.append(f"recruitee:{company}: unexpected response format")
+                continue
+            self._collect(result, [o for o in offers if o.get("status", "published") == "published"],
+                          lambda j: self._parse(j, company), company)
+            result.complete_boards.add(company)
+        return result
+
+    def _parse(self, j: dict[str, Any], company: str) -> Job:
+        location = j.get("location") or ", ".join(x for x in (j.get("city"), j.get("country")) if x)
+        arrangement = ("remote" if j.get("remote") else "hybrid" if j.get("hybrid")
+                       else "onsite" if j.get("on_site") else detect_arrangement(location))
+        salary = j.get("salary") or {}
+        published = (j.get("published_at") or "").replace(" UTC", "+00:00").replace(" ", "T", 1)
+        return Job(
+            source=self.name,
+            source_job_id=str(j["id"]),
+            board=company,
+            title=j["title"].strip(),
+            company=j.get("company_name") or company,
+            url=j["careers_url"],
+            apply_url=j.get("careers_apply_url"),
+            description="\n\n".join(html_to_text(j.get(k)) for k in ("description", "requirements") if j.get(k)),
+            location=location or None,
+            city=detect_city(location),
+            country=_country(location, j.get("country_code")),
+            employment_type=(j.get("employment_type_code") or "").replace("_", " ") or None,
+            work_arrangement=arrangement,
+            salary_min=salary.get("min"),
+            salary_max=salary.get("max"),
+            salary_currency=salary.get("currency"),
+            salary_period=salary.get("period"),
+            posted_at=to_iso(published),
+            closing_date=to_iso(j.get("close_at")),
+        )
+
+
+class WorkableSource(SourceAdapter):
+    """Workable public job widget API (the feed behind each company's apply.workable.com page)."""
+
+    name = "workable"
+    complete_listing = True
+
+    def fetch(self) -> FetchResult:
+        result = FetchResult()
+        for company in self.config.get("companies", []):
+            url = f"https://apply.workable.com/api/v1/widget/accounts/{quote(company)}?details=true"
+            try:
+                data = get_json(url)
+                jobs = data["jobs"]
+                if not isinstance(jobs, list):
+                    raise TypeError
+            except FetchError as exc:
+                result.errors.append(f"workable:{company}: {exc}")
+                continue
+            except (KeyError, TypeError):
+                result.errors.append(f"workable:{company}: unexpected response format")
+                continue
+            org = data.get("name") or company
+            self._collect(result, jobs, lambda j: self._parse(j, company, org), company)
+            result.complete_boards.add(company)
+            time.sleep(2)  # Workable rate-limits bursts
+        return result
+
+    def _parse(self, j: dict[str, Any], company: str, org: str) -> Job:
+        locs = j.get("locations") or [{"city": j.get("city"), "region": j.get("state"), "country": j.get("country")}]
+        names = [", ".join(x for x in (l.get("city"), l.get("region"), l.get("country")) if x) for l in locs]
+        location = " / ".join(n for n in names if n)
+        country = (locs[0].get("countryCode") or locs[0].get("country")) if locs else None
+        url = j.get("url") or j.get("shortlink") or f"https://apply.workable.com/{quote(company)}/j/{j['shortcode']}/"
+        return Job(
+            source=self.name,
+            source_job_id=str(j["shortcode"]),
+            board=company,
+            title=j["title"].strip(),
+            company=org,
+            url=url,
+            apply_url=j.get("application_url"),
+            description=html_to_text(j.get("description")),
+            experience_text=j.get("experience") or None,
+            location=location or None,
+            city=detect_city(location),
+            country=_country(location, country),
+            employment_type=j.get("employment_type") or None,
+            work_arrangement="remote" if j.get("telecommuting") else detect_arrangement(location),
+            posted_at=to_iso(j.get("published_on") or j.get("created_at")),
+        )
+
+
 class SmartRecruitersSource(SourceAdapter):
     """Searches each company's public postings by keyword (not a complete listing)."""
 

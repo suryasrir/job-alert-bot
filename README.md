@@ -64,9 +64,11 @@ notifications.py ── Telegram / email; a job is marked "notified" only after 
 
 | Source | Access | Cost | Notes |
 |---|---|---|---|
-| **Greenhouse** company boards | Official public Job Board API | Free | Returns every open job for each listed company, so closed jobs are detected. India boards configured: Groww, Razorpay, InMobi, Druva, Rubrik, HackerRank, Observe.AI, plus global companies with India offices. |
-| **Lever** company boards | Official public Postings API | Free | Meesho, Paytm, Zeta, Fam, CRED, Spotify. |
+| **Greenhouse** company boards | Official public Job Board API | Free | Returns every open job for each listed company, so closed jobs are detected. India boards configured: Groww, Razorpay, InMobi, Druva, Rubrik, HackerRank, Observe.AI, Glance, Truecaller, plus global companies with India offices. |
+| **Lever** company boards | Official public Postings API | Free | Meesho, Paytm, Zeta, Fam, CRED, Mindtickle, Pocket FM, Dozee, Spotify. |
 | **Ashby** company boards | Official public Job Posting API | Free | Sarvam, Atlan. |
+| **Recruitee** company boards | Official public careers API | Free | Lenskart. |
+| **Workable** company boards | Public job widget API | Free | Apna, Tata 1mg. Workable limits bursts of requests, so it's fetched every 3 hours. |
 | **SmartRecruiters** | Official public Posting API | Free | Keyword search within India for Bosch and Freshworks. The listing has no description, so these jobs score lower. |
 | **Remotive** | Public API | Free | Remote jobs only, published 24 hours late. Their terms ask for at most about 4 calls a day and a link back to Remotive (alerts link to the original posting). |
 | **RemoteOK** | Public API | Free | Remote jobs. Their terms ask you to credit Remote OK as the source. |
@@ -188,7 +190,9 @@ Some sources limit how often you may call them, so each source has a `min_interv
 |---|---|
 | Greenhouse, Lever, Ashby | 1 hour |
 | SmartRecruiters, RemoteOK | 2 hours |
-| Remotive (asks for at most 4 calls a day), Adzuna (free plan has call caps) | 6 hours |
+| Workable | 3 hours |
+| Remotive (one call for all developer jobs; asks for at most 4 calls a day) | 6 hours |
+| Adzuna (free plan has call caps) | 8 hours |
 
 To change the schedule, edit the `cron:` line in `.github/workflows/jobs.yml`. For example, `30 */6 * * *` runs every 6 hours (06:00, 12:00, 18:00 and 00:00 IST). Scheduled runs often start 5–30 minutes late. GitHub also pauses schedules after 60 days with no activity in a public repository; re-enable them from the Actions tab.
 
@@ -200,9 +204,9 @@ To change the schedule, edit the `cron:` line in `.github/workflows/jobs.yml`. F
 
 Besides personal alerts, the bot can post jobs to a public Telegram channel that anyone can join.
 
-**What gets posted:** hands-on iOS, Swift, SwiftUI, React Native and mobile-developer roles that are in India or open to remote workers in India, posted in the last 3 days. The bot judges these for a general audience: it ignores the personal profile's experience and salary, and skips managers, QA, designers, Java and similar roles.
+**What gets posted:** hands-on software jobs of any stack (iOS, Android, React Native, Flutter, .NET, Node.js, Java, Python, full stack, frontend, backend, QA automation, DevOps, data/AI, internships) that are in India or open to remote workers in India, posted in the last 3 days. The bot judges these for a general audience: it ignores the personal profile, and skips managers, sales, designers, analysts, support, and hardware or other non-software engineering roles. If a company lists the same title several times, only one is posted within 14 days.
 
-**What each post contains:** title, company, location, experience asked for, salary (if listed), job type, posting date, the apply link, hashtags (`#iOS #Hyderabad #Remote …`) and an optional footer such as "Join @your_channel". It never shows personal scores or notes. Jobs from Remotive, Remote OK and Adzuna show a "Source:" credit, as their terms require.
+**What each post contains:** title, company, location, experience asked for, salary (if listed), job type, posting date, the apply link, hashtags for the stack and city (`#Android #NodeJS #FullStack #Bengaluru #Remote …`) and an optional footer such as "Join @your_channel". It never shows personal scores or notes. Jobs from Remotive, Remote OK and Adzuna show a "Source:" credit, as their terms require.
 
 **Setup:**
 1. In Telegram: **New Channel**, give it a name, make it **Public**, and choose a username such as `ios_jobs_india`.
