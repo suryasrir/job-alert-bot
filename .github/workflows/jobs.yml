@@ -1,11 +1,30 @@
 name: Job Alert
 
 on:
+  schedule:
+    # GitHub cron uses UTC and may start several minutes late.
+    # "30 */6 * * *" = 00:30, 06:30, 12:30, 18:30 UTC
+    #                = 06:00, 12:00, 18:00, 00:00 IST
+    - cron: "30 */6 * * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (fetch and score, but send no alerts and call no AI)"
+        type: boolean
+        default: false
+
+# Never run two jobs at once: they would race on the database and could send duplicate alerts.
+concurrency:
+  group: job-alert
+  cancel-in-progress: false
+
+permissions:
+  contents: read
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
@@ -13,7 +32,40 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
-      - run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-dev.txt
 
-      - run: python jobs.py
+      - name: Run tests
+        run: python -m pytest -q
+
+      # The SQLite database is kept in the Actions cache between runs.
+      # Each run saves a new cache entry; restore picks the most recent one.
+      - name: Restore job database
+        uses: actions/cache/restore@v4
+        with:
+          path: data/jobs.db
+          key: jobs-db-${{ github.run_id }}
+          restore-keys: jobs-db-
+
+      - name: Discover jobs
+        env:
+          DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+          CANDIDATE_PROFILE_JSON: ${{ secrets.CANDIDATE_PROFILE_JSON }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          MAX_NOTIFICATIONS: ${{ vars.MAX_NOTIFICATIONS || '10' }}
+          AI_MAX_JOBS_PER_RUN: ${{ vars.AI_MAX_JOBS_PER_RUN || '5' }}
+        run: python jobs.py run
+
+      - name: Save job database
+        if: always() && hashFiles('data/jobs.db') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/jobs.db
+          key: jobs-db-${{ github.run_id }}

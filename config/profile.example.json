@@ -1,0 +1,53 @@
+{
+  "name": "Sample Candidate",
+  "total_experience_years": 3.5,
+  "ios_experience_years": 3,
+  "react_native_experience_years": 1,
+  "current_ctc_lpa": null,
+  "expected_ctc_lpa": null,
+  "notice_period_days": 30,
+  "preferred_locations": ["Hyderabad", "Remote"],
+  "open_to_other_india_locations": true,
+  "willing_to_relocate_to": ["Hyderabad"],
+  "remote_ok": true,
+  "preferred_titles": [
+    "iOS Developer",
+    "Senior iOS Developer",
+    "Swift Developer",
+    "iOS SDK Developer",
+    "iOS Framework Engineer",
+    "Mobile SDK Developer",
+    "React Native Developer",
+    "Mobile Application Developer",
+    "Mobile App Developer",
+    "Software Engineer - iOS",
+    "Mobile Software Engineer"
+  ],
+  "skills": [
+    "Swift", "iOS", "UIKit", "SwiftUI", "Objective-C", "React Native", "REST APIs",
+    "Core Data", "Xcode", "Firebase", "Git", "CocoaPods", "Alamofire", "MapKit",
+    "Core Location", "Push Notifications", "TestFlight", "App Store", "Unit Testing",
+    "MVC", "JavaScript", "Redux", "Mobile SDK", "JSON", "Payment Gateway", "Video Calling"
+  ],
+  "skill_synonyms": {
+    "iOS": ["ios", "iphone", "ipad"],
+    "Objective-C": ["objective-c", "objective c", "objc"],
+    "React Native": ["react native", "react-native"],
+    "Core Data": ["core data", "coredata"],
+    "REST APIs": ["rest api", "restful", "rest apis", "rest-based"],
+    "Core Location": ["core location", "corelocation"],
+    "Push Notifications": ["push notification", "apns", "fcm"],
+    "App Store": ["app store", "appstore", "app store connect"],
+    "Unit Testing": ["unit test", "xctest", "unit testing"],
+    "Mobile SDK": ["mobile sdk", "ios sdk", "sdk development", "sdks"],
+    "Payment Gateway": ["payment gateway", "payu", "razorpay", "payment integration"],
+    "Video Calling": ["agora", "zoom sdk", "webrtc", "video call"]
+  },
+  "weights": {"title": 25, "skills": 30, "experience": 15, "location": 15, "salary": 10, "recency": 5},
+  "thresholds": {"strong": 75, "good": 60, "possible": 45, "notify_min": 60, "store_min": 30},
+  "summary": "iOS developer with about 3 years of native Swift/UIKit experience and about 1 year of React Native, building healthcare apps.",
+  "experience": [],
+  "education": [],
+  "certifications": [],
+  "contact": {}
+}

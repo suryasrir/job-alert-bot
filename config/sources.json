@@ -1,0 +1,34 @@
+{
+  "_comment": "Edit this file to add companies or search terms. Board tokens are the company slug in the public job-board URL. Every entry was checked to return live postings on 2026-10-13; boards can disappear, and failures are logged and skipped.",
+  "search_terms": ["ios developer", "swift", "react native", "mobile developer"],
+  "greenhouse": {
+    "enabled": true,
+    "boards": ["groww", "razorpaysoftwareprivatelimited", "inmobi", "druva", "rubrik", "hackerrank",
+               "observeai", "databricks", "stripe", "okta", "gitlab", "twilio", "agoda", "coinbase", "toast", "airbnb"]
+  },
+  "lever": {
+    "enabled": true,
+    "companies": ["meesho", "paytm", "zeta", "fampay", "cred", "spotify"]
+  },
+  "ashby": {
+    "enabled": true,
+    "boards": ["sarvam", "atlan"]
+  },
+  "smartrecruiters": {
+    "enabled": true,
+    "companies": ["BoschGroup", "Freshworks"],
+    "country": "in",
+    "queries": ["ios", "mobile", "react native", "swift"]
+  },
+  "remotive": {"enabled": true, "queries": ["ios", "swift", "react native"]},
+  "remoteok": {"enabled": true, "tags": ["ios", "swift", "react-native"]},
+  "arbeitnow": {"enabled": false, "_note": "Mostly European/German roles; disabled by default for an India-focused search.", "max_pages": 3},
+  "adzuna": {
+    "enabled": true,
+    "_note": "Needs free ADZUNA_APP_ID and ADZUNA_APP_KEY from https://developer.adzuna.com. Skipped when keys are absent.",
+    "country": "in",
+    "queries": ["ios developer", "react native developer", "swift developer"],
+    "locations": ["Hyderabad", ""],
+    "max_pages": 2
+  }
+}

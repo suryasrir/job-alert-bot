@@ -1,0 +1,28 @@
+# Secrets and private configuration
+.env
+.env.*
+!.env.example
+config/profile.json
+config/*.private.json
+
+# Private resumes and generated application material
+resume*
+*.pdf
+*.docx
+output/
+private/
+
+# Local database and logs (may contain personal review notes)
+data/
+*.db
+*.db-journal
+*.lock
+*.log
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
