@@ -194,11 +194,13 @@ def _post_channel(db: Database, settings: Settings, report: RunReport,
     if settings.dry_run:
         report.notes.append(f"Dry run: {len(batch)} channel post(s) would be published ({len(pending)} waiting)")
         return
-    notifier = notifier or TelegramNotifier(chat_id=settings.telegram_channel_id)
-    if not notifier.configured():
+    # TELEGRAM_CHANNEL_ID may list several targets: "@my_channel,-1001234567890" (a channel and a group).
+    targets = [t.strip() for t in (settings.telegram_channel_id or "").split(",") if t.strip()]
+    notifiers = [notifier] if notifier else [TelegramNotifier(chat_id=t) for t in targets]
+    if not all(n.configured() for n in notifiers):
         report.notes.append("TELEGRAM_CHANNEL_ID is set but TELEGRAM_BOT_TOKEN is missing; channel posting skipped")
         return
-    posted = post_to_channel(batch, notifier, settings.channel_footer, settings.post_delay_seconds)
+    posted = post_to_channel(batch, notifiers, settings.channel_footer, settings.post_delay_seconds)
     for job_id in posted:
         db.mark_channel_posted(job_id)
     report.channel_posted = len(posted)

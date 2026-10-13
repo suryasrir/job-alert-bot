@@ -182,3 +182,32 @@ def test_lookalike_repeats_not_posted(db, profile):
 
 def test_hardware_roles_excluded(profile):
     assert not score_job(make_job(title="Senior Hardware Module Developer - Braking"), profile).public_ok
+
+
+def test_posts_to_channel_and_group(profile):
+    from job_agent.notifications import post_to_channel
+    job = score_job(make_job(), profile)
+    job.id = "j1"
+    channel, group = FakeNotifier(), FakeNotifier()
+    assert post_to_channel([job], [channel, group], delay=0) == ["j1"]
+    assert len(channel.sent) == 1 and len(group.sent) == 1
+    # One target failing still counts as posted (the other delivered it)
+    assert post_to_channel([job], [FakeNotifier(ok=False), FakeNotifier()], delay=0) == ["j1"]
+
+
+def test_multiple_targets_parsed(db, profile, monkeypatch):
+    sent_to = []
+
+    class Recorder(FakeNotifier):
+        def __init__(self, chat_id=None, **kw):
+            super().__init__()
+            self.chat_id = chat_id
+
+        def send(self, text):
+            sent_to.append(self.chat_id)
+            return True
+
+    monkeypatch.setattr("job_agent.pipeline.TelegramNotifier", Recorder)
+    run(profile, _settings(telegram_channel_id="@chan, -100123"), {}, db,
+        adapters=[StaticSource([make_job()])], notifiers=[])
+    assert sent_to == ["@chan", "-100123"]

@@ -148,14 +148,20 @@ def format_public_post(job: Job, footer: str = "") -> str:
     return "\n".join(lines)
 
 
-def post_to_channel(jobs: list[Job], notifier: "TelegramNotifier", footer: str = "",
-                    delay: float = 3.0) -> list[str]:
-    """Post each job to the channel; returns IDs Telegram confirmed. Spaced to respect rate limits."""
+def post_to_channel(jobs: list[Job], notifiers, footer: str = "", delay: float = 3.0) -> list[str]:
+    """Post each job to every target (channel and/or groups).
+
+    Returns IDs confirmed by at least one target. Spaced to respect Telegram rate limits.
+    """
+    if not isinstance(notifiers, (list, tuple)):
+        notifiers = [notifiers]
     posted = []
     for i, job in enumerate(jobs):
         if i:
             time.sleep(delay)
-        if notifier.send(format_public_post(job, footer)):
+        text = format_public_post(job, footer)
+        results = [n.send(text) for n in notifiers]
+        if any(results):
             posted.append(job.id)
     return posted
 
