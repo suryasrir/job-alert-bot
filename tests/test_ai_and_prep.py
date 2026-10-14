@@ -102,7 +102,7 @@ def test_template_prep_uses_only_profile_facts(profile, tmp_path):
     path = prepare_application(job, profile, "approval_required", provider=None, output_dir=tmp_path)
     text = path.read_text()
     assert "Nothing has been sent or submitted" in text
-    assert "3.5 years" in text and "Acme" in text
+    assert "about 3 years" in text and "Acme" in text
     assert "applied_by_user --confirm" in text
 
 

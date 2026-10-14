@@ -24,9 +24,16 @@ def _clean_env(monkeypatch):
 
 @pytest.fixture
 def profile() -> Profile:
+    # A fictional test candidate; values are set here so tests don't depend on the sample profile.
     p, _ = load_profile(str(ROOT / "config" / "profile.example.json"))
-    p.current_ctc_lpa = 6
-    p.expected_ctc_lpa = 11
+    p.total_experience_years = 3
+    p.ios_experience_years = 2
+    p.react_native_experience_years = 1
+    p.current_ctc_lpa = 8
+    p.expected_ctc_lpa = 12
+    p.notice_period_days = 30
+    p.preferred_locations = ["Hyderabad", "Remote"]
+    p.willing_to_relocate_to = ["Hyderabad"]
     return p
 
 
