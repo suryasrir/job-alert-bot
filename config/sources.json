@@ -72,6 +72,17 @@
     "min_interval_hours": 3,
     "_note": "Workable rate-limits bursts; keep this list short-ish and the interval >= 3h."
   },
+  "workday": {
+    "enabled": true,
+    "sites": [],
+    "queries": [
+      "developer",
+      "engineer"
+    ],
+    "max_pages": 3,
+    "min_interval_hours": 2,
+    "_note": "Sites come from config/companies.csv (rows with system=workday, status=connected). Results are by relevance, so each run reads up to max_pages x 20 jobs per query per site."
+  },
   "smartrecruiters": {
     "enabled": true,
     "companies": [
@@ -129,5 +140,6 @@
     "max_pages": 1,
     "min_interval_hours": 8
   },
-  "_comment_intervals": "min_interval_hours: the workflow runs hourly, but a source is fetched at most this often. Remotive asks for <=4 calls/day; Adzuna's free plan has daily/monthly call caps."
+  "_comment_intervals": "min_interval_hours: the workflow runs hourly, but a source is fetched at most this often. Remotive asks for <=4 calls/day; Adzuna's free plan has daily/monthly call caps.",
+  "_comment_companies": "Companies from config/companies.csv with status=connected are added to the matching source automatically on every run."
 }

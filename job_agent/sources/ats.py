@@ -4,15 +4,18 @@
 - Lever Postings API:       https://github.com/lever/postings-api
 - Ashby Job Postings API:   https://developers.ashbyhq.com/docs/public-job-posting-api
 - SmartRecruiters Posting API: https://developers.smartrecruiters.com/docs/posting-api
+- Recruitee careers API, Workable job widget, Workday career-site JSON (see each class)
 """
 
 from __future__ import annotations
 
+import re
 import time
+from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
-from ..http import FetchError, get_json
+from ..http import FetchError, get_json, request
 from ..models import Job
 from ..text import detect_arrangement, detect_city, html_to_text, mentions_india, to_iso
 from .base import FetchResult, SourceAdapter
@@ -277,6 +280,126 @@ class WorkableSource(SourceAdapter):
             work_arrangement="remote" if j.get("telecommuting") else detect_arrangement(location),
             posted_at=to_iso(j.get("published_on") or j.get("created_at")),
         )
+
+
+class WorkdaySource(SourceAdapter):
+    """Workday career sites (*.myworkdayjobs.com), via the same JSON the public careers page loads.
+
+    Each site's robots.txt allows its careers paths. Results come by relevance, not date, so we
+    read a bounded number of pages per search and rely on `postedOn` to find fresh jobs.
+    Config: {"sites": [{"name": "Accenture", "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers"}],
+             "queries": ["developer", "engineer"], "max_pages": 5}
+    """
+
+    name = "workday"
+    complete_listing = False
+    PAGE = 20
+
+    def fetch(self) -> FetchResult:
+        result = FetchResult()
+        for site in self.config.get("sites", []):
+            try:
+                host, tenant, path = self._parts(site["url"])
+            except (KeyError, ValueError):
+                result.errors.append(f"workday:{site.get('name')}: bad url")
+                continue
+            api = f"https://{host}/wday/cxs/{tenant}/{path}/jobs"
+            try:
+                facets = self._india_facet(api)
+            except FetchError as exc:
+                result.errors.append(f"workday:{site['name']}: {exc}")
+                continue
+            seen: set[str] = set()
+            for q in self.config.get("queries", ["developer"]):
+                for page in range(int(self.config.get("max_pages", 5))):
+                    body = {"appliedFacets": facets, "limit": self.PAGE, "offset": page * self.PAGE, "searchText": q}
+                    try:
+                        data = request("POST", api, json=body, headers={"Content-Type": "application/json"}).json()
+                        postings = data["jobPostings"]
+                        if not isinstance(postings, list):
+                            raise TypeError
+                    except FetchError as exc:
+                        result.errors.append(f"workday:{site['name']}: {exc}")
+                        break
+                    except (KeyError, TypeError, ValueError):
+                        result.errors.append(f"workday:{site['name']}: unexpected response format")
+                        break
+                    fresh = [p for p in postings if p.get("externalPath") and p["externalPath"] not in seen]
+                    seen.update(p["externalPath"] for p in fresh)
+                    self._collect(result, fresh, lambda p: self._parse(p, site, host, path, bool(facets)), site["name"])
+                    if len(postings) < self.PAGE:
+                        break
+                    time.sleep(1)
+        return result
+
+    @staticmethod
+    def _parts(url: str) -> tuple[str, str, str]:
+        parts = urlsplit(url)
+        host = parts.netloc
+        if not host.endswith(".myworkdayjobs.com"):
+            raise ValueError(url)
+        segs = [s for s in parts.path.split("/") if s and not re.fullmatch(r"[a-z]{2}-[A-Z]{2}", s)]
+        if not segs:
+            raise ValueError(url)
+        return host, host.split(".")[0], segs[0]
+
+    def _india_facet(self, api: str) -> dict[str, list[str]]:
+        """Find this site's own id for 'India' (ids differ between companies). {} when there is none."""
+        data = request("POST", api, json={"appliedFacets": {}, "limit": 1, "offset": 0, "searchText": ""},
+                       headers={"Content-Type": "application/json"}).json()
+
+        def walk(node: dict, param: Optional[str]) -> Optional[tuple[str, str]]:
+            for v in node.get("values", []):
+                p = v.get("facetParameter") or param
+                if "values" in v:
+                    found = walk(v, p)
+                    if found:
+                        return found
+                elif str(v.get("descriptor", "")).strip().lower() == "india" and p:
+                    return p, v["id"]
+            return None
+
+        for facet in data.get("facets", []):
+            found = walk(facet, facet.get("facetParameter"))
+            if found:
+                return {found[0]: [found[1]]}
+        return {}
+
+    def _parse(self, p: dict[str, Any], site: dict, host: str, path: str, india_filtered: bool) -> Optional[Job]:
+        location = p.get("locationsText") or ""
+        if not india_filtered and not mentions_india(location) and not re.search(r"\bIND\b", location):
+            return None  # site has no country filter: keep only jobs that name an Indian location
+        return Job(
+            source=self.name,
+            source_job_id=f"{host}{p['externalPath']}",
+            board=site["name"],
+            title=p["title"].strip(),
+            company=site["name"],
+            url=f"https://{host}/{path}{p['externalPath']}",
+            description="",
+            location=location or ("India" if india_filtered else None),
+            city=detect_city(location),
+            country="India" if india_filtered or mentions_india(location) or "IND" in location else None,
+            work_arrangement=detect_arrangement(location, p.get("remoteType")),
+            posted_at=_workday_posted(p.get("postedOn")),
+        )
+
+
+def _workday_posted(text: Optional[str]) -> Optional[str]:
+    """'Posted Today' / 'Posted Yesterday' / 'Posted 5 Days Ago' / 'Posted 30+ Days Ago' -> ISO date."""
+    if not text:
+        return None
+    t = text.lower()
+    if "today" in t:
+        days = 0
+    elif "yesterday" in t:
+        days = 1
+    else:
+        m = re.search(r"(\d+)\+?\s*day", t)
+        if not m:
+            return None
+        days = int(m.group(1)) + (1 if "+" in t else 0)
+    return (datetime.now(timezone.utc) - timedelta(days=days)).isoformat(timespec="seconds")
 
 
 class SmartRecruitersSource(SourceAdapter):

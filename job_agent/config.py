@@ -8,6 +8,7 @@ Profile lookup order (first found wins):
 
 from __future__ import annotations
 
+import csv
 import json
 import logging
 import os
@@ -94,9 +95,51 @@ def load_profile(path: Optional[str] = None) -> tuple[Profile, str]:
     raise FileNotFoundError("No candidate profile found (expected config/profile.json)")
 
 
-def load_sources_config(path: Optional[str] = None) -> dict[str, Any]:
+def load_sources_config(path: Optional[str] = None, companies_path: Optional[str] = None) -> dict[str, Any]:
     p = Path(path) if path else CONFIG_DIR / "sources.json"
-    return json.loads(p.read_text())
+    cfg = json.loads(p.read_text())
+    merge_company_list(cfg, Path(companies_path) if companies_path else CONFIG_DIR / "companies.csv")
+    return cfg
+
+
+# Systems a `connected` row in companies.csv can use, and where its `feed` goes in sources.json.
+COMPANY_FEEDS = {
+    "greenhouse": ("greenhouse", "boards"),
+    "lever": ("lever", "companies"),
+    "ashby": ("ashby", "boards"),
+    "recruitee": ("recruitee", "companies"),
+    "workable": ("workable", "companies"),
+    "smartrecruiters": ("smartrecruiters", "companies"),
+    "workday": ("workday", "sites"),
+}
+
+
+def merge_company_list(cfg: dict[str, Any], path: Path) -> int:
+    """Add every `connected` company from the company list (CSV) to the sources config.
+
+    The CSV is the place to manage companies: set `system` + `feed` and `status=connected` to add one,
+    or change the status to anything else to pause it. Returns how many companies were added.
+    """
+    if not path.exists():
+        return 0
+    added = 0
+    with path.open(newline="", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            if (row.get("status") or "").strip().lower() != "connected":
+                continue
+            system = (row.get("system") or "").strip().lower()
+            feed = (row.get("feed") or "").strip()
+            if system not in COMPANY_FEEDS or not feed:
+                log.warning("companies.csv: %s is connected but has no usable system/feed", row.get("company"))
+                continue
+            source, key = COMPANY_FEEDS[system]
+            block = cfg.setdefault(source, {"enabled": True})
+            items = block.setdefault(key, [])
+            entry = {"name": row["company"].strip(), "url": feed} if system == "workday" else feed
+            if entry not in items:
+                items.append(entry)
+                added += 1
+    return added
 
 
 @dataclass

@@ -1,0 +1,434 @@
+company,category,hq,website,careers_page,system,feed,status,note
+Tata Consultancy Services (TCS),Indian IT Services - Large,Mumbai,https://www.tcs.com,https://www.tcs.com/careers,,,manual,site did not respond to the check (HTTP 403)
+Infosys,Indian IT Services - Large,Bengaluru,https://www.infosys.com,https://www.infosys.com/careers/,,,manual,site did not respond to the check (HTTP 403)
+Wipro,Indian IT Services - Large,Bengaluru,https://www.wipro.com,https://careers.wipro.com/,,,manual,custom careers page; no public feed found
+HCLTech,Indian IT Services - Large,Noida,https://www.hcltech.com,https://www.hcltech.com/careers,,,manual,site did not respond to the check (ReadTimeout)
+Tech Mahindra,Indian IT Services - Large,Pune,https://www.techmahindra.com,https://careers.techmahindra.com/,,,manual,custom careers page; no public feed found
+LTIMindtree,Indian IT Services - Large,Mumbai,https://www.ltimindtree.com,https://www.ltm.com/careers,,,manual,custom careers page; no public feed found
+Persistent Systems,Indian IT Services - Large,Pune,https://www.persistent.com,https://www.persistent.com/careers/,,,manual,site did not respond to the check (ReadTimeout)
+Coforge,Indian IT Services - Large,Noida,https://www.coforge.com,https://www.coforge.com/careers,,,manual,site did not respond to the check (ReadTimeout)
+Mphasis,Indian IT Services - Large,Bengaluru,https://www.mphasis.com,https://careers.mphasis.com/home.html,,,manual,custom careers page; no public feed found
+Hexaware Technologies,Indian IT Services - Large,Mumbai,https://hexaware.com,https://jobs.hexaware.com/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Zensar Technologies,Indian IT Services - Large,Pune,https://www.zensar.com,https://www.zensar.com/careers,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Birlasoft,Indian IT Services - Large,Pune,https://www.birlasoft.com,https://www.birlasoft.com/careers,,,manual,custom careers page; no public feed found
+Sonata Software,Indian IT Services - Large,Bengaluru,https://www.sonata-software.com,https://www.sonata-software.com/careers,,,manual,custom careers page; no public feed found
+Mastek,Indian IT Services - Large,Mumbai,https://www.mastek.com,https://www.mastek.com/careers/,,,manual,custom careers page; no public feed found
+Happiest Minds Technologies,Indian IT Services - Large,Bengaluru,https://www.happiestminds.com,https://www.thehindubusinessline.com/info-tech/local-hiring-and-acquisitions-key-to-mid-cap-it-firms-h-1b-resilience/article70085676.ece,,,manual,custom careers page; no public feed found
+ITC Infotech,Indian IT Services - Large,Bengaluru,https://www.itcinfotech.com,https://www.itcinfotech.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Cigniti Technologies,Indian IT Services - Mid-size,Hyderabad,https://www.cigniti.com,https://www.cigniti.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Kellton Tech,Indian IT Services - Mid-size,Hyderabad,https://www.kellton.com,https://www.kellton.com/careers,,,manual,site did not respond to the check (HTTP 403)
+ValueLabs,Indian IT Services - Mid-size,Hyderabad,https://www.valuelabs.com,https://www.valuelabs.com/careers/,,,manual,custom careers page; no public feed found
+ValueMomentum,Indian IT Services - Mid-size,Hyderabad,https://www.valuemomentum.com,https://www.valuemomentum.com/careers/,,,manual,custom careers page; no public feed found
+Mastech Digital,Indian IT Services - Mid-size,Pittsburgh / Chennai,https://www.mastechdigital.com,https://jobs.mastech.com/,,,manual,custom careers page; no public feed found
+Infinite Computer Solutions,Indian IT Services - Mid-size,Gurugram,https://www.infinite.com,https://www.infinite.com/careers/,,,manual,custom careers page; no public feed found
+Intellect Design Arena,Indian IT Services - Mid-size,Chennai,https://www.intellectdesign.com,https://www.intellectdesign.com/careers/,,,manual,custom careers page; no public feed found
+Newgen Software,Indian IT Services - Mid-size,Noida,https://newgensoft.com,https://newgensoft.com/company/careers/,,,manual,custom careers page; no public feed found
+3i Infotech,Indian IT Services - Mid-size,Mumbai,https://www.3i-infotech.com,https://www.3i-infotech.com/wp-content/plugins/wp-job-openings/assets/css/general.min.css?ver=3.4.3,,,manual,custom careers page; no public feed found
+R Systems International,Indian IT Services - Mid-size,Noida,https://www.rsystems.com,https://www.rsystems.com/careers/,,,manual,site did not respond to the check (HTTP 403)
+Datamatics Global Services,Indian IT Services - Mid-size,Mumbai,https://www.datamatics.com,https://www.datamatics.com/careers,,,manual,site did not respond to the check (HTTP 404)
+Saksoft,Indian IT Services - Mid-size,Chennai,https://www.saksoft.com,https://www.saksoft.com,,,manual,custom careers page; no public feed found
+Nucleus Software,Indian IT Services - Mid-size,Noida,https://www.nucleussoftware.com,https://www.nucleussoftware.com/,Zoho Recruit,,manual,no public job feed; check careers page
+Ramco Systems,Indian IT Services - Mid-size,Chennai,https://www.ramco.com,https://www.ramco.com/careers,,,manual,custom careers page; no public feed found
+InfoBeans Technologies,Indian IT Services - Mid-size,Indore,https://www.infobeans.com,https://infobeans.ai/careers/,,,manual,custom careers page; no public feed found
+Aurionpro Solutions,Indian IT Services - Mid-size,Mumbai,https://www.aurionpro.com,https://www.aurionpro.com,,,manual,site did not respond to the check (HTTP 403)
+Subex,Indian IT Services - Mid-size,Bengaluru,https://www.subex.com,https://www.subex.com/careers/,Darwinbox,,manual,no public job feed; check careers page
+Trigyn Technologies,Indian IT Services - Mid-size,Mumbai,https://www.trigyn.com,https://www.trigyn.com,,,manual,site did not respond to the check (SSLError)
+Cybage Software,Indian IT Services - Mid-size,Pune,https://www.cybage.com,https://www.cybage.com/careers/open-positions,,,manual,custom careers page; no public feed found
+Xoriant,Indian IT Services - Mid-size,Mumbai / Sunnyvale,https://www.xoriant.com,https://www.xoriant.com/careers,,,manual,site did not respond to the check (HTTP 403)
+Synechron,Indian IT Services - Mid-size,Pune / New York,https://www.synechron.com,https://www.synechron.com/careers,workday,https://synechron.wd1.myworkdayjobs.com/SynechronCareers,connected,20 India jobs at setup (2026-10-14)
+Nagarro,Indian IT Services - Mid-size,Gurugram / Munich,https://www.nagarro.com,https://www.nagarro.com/en/careers,,,manual,custom careers page; no public feed found
+Virtusa,Indian IT Services - Mid-size,Hyderabad / Southborough,https://www.virtusa.com,https://www.virtusa.com/careers,,,manual,site did not respond to the check (HTTP 403)
+UST,Indian IT Services - Mid-size,Thiruvananthapuram / Aliso Viejo,https://www.ust.com,https://www.ust.com/en/careers,,,manual,custom careers page; no public feed found
+Quinnox,Indian IT Services - Mid-size,Bengaluru / Chicago,https://www.quinnox.com,https://www.quinnox.com/career/,,,manual,custom careers page; no public feed found
+Prodapt,Indian IT Services - Mid-size,Chennai,https://www.prodapt.com,https://www.prodapt.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Altimetrik,Indian IT Services - Mid-size,Bengaluru / Southfield,https://www.altimetrik.com,https://www.altimetrik.com/careers/,,,manual,custom careers page; no public feed found
+Brillio,Indian IT Services - Mid-size,Bengaluru / Santa Clara,https://www.brillio.com,https://www.brillio.com/careers/,,,manual,custom careers page; no public feed found
+Movate (formerly CSS Corp),Indian IT Services - Mid-size,Chennai,https://www.movate.com,https://www.movate.com/careers-at-movate/,,,manual,custom careers page; no public feed found
+Encora,Indian IT Services - Mid-size,Bengaluru / Scottsdale,https://www.encora.com,https://www.encora.com/careers,,,manual,custom careers page; no public feed found
+Ascendion,Indian IT Services - Mid-size,Bengaluru / New Jersey,https://ascendion.com,https://ascendion.com/who-we-are/careers/,,,manual,custom careers page; no public feed found
+CitiusTech,Indian IT Services - Mid-size,Mumbai,https://www.citiustech.com,https://www.citiustech.com/careers,,,manual,custom careers page; no public feed found
+Emids,Indian IT Services - Mid-size,Bengaluru / Nashville,https://www.emids.com,https://www.emids.com/careers/,,,manual,custom careers page; no public feed found
+GSPANN Technologies,Indian IT Services - Mid-size,Gurugram / Milpitas,https://www.gspann.com,https://careers.gspann.com/,,,manual,custom careers page; no public feed found
+Infogain,Indian IT Services - Mid-size,Noida / San Jose,https://www.infogain.com,https://www.tenarai.com/hubfs/hub_generated/template_assets/1/331574817503/1791292164952/template_careers.min.css,,,manual,custom careers page; no public feed found
+Ness Digital Engineering,Indian IT Services - Mid-size,Bengaluru / New Jersey,https://www.ness.com,https://www.ness.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Yash Technologies,Indian IT Services - Mid-size,Indore / Chicago,https://www.yash.com,https://www.yash.com/about-us/career/,SAP SuccessFactors,,manual,no public job feed; check careers page
+Trianz,Indian IT Services - Mid-size,Bengaluru / Santa Clara,https://www.trianz.com,https://www.trianz.com/careers,Jobvite,,manual,no public job feed; check careers page
+Tavant Technologies,Indian IT Services - Mid-size,Bengaluru / Santa Clara,https://www.tavant.com,https://tavant.com/careers/,,,manual,custom careers page; no public feed found
+Aspire Systems,Indian IT Services - Mid-size,Chennai,https://www.aspiresys.com,https://www.aspiresys.com/careers,,,manual,custom careers page; no public feed found
+Indium Software,Indian IT Services - Mid-size,Chennai,https://www.indiumsoftware.com,https://www.indium.tech/careers/,,,manual,custom careers page; no public feed found
+Photon,Indian IT Services - Mid-size,Chennai / Dallas,https://www.photon.com,https://www.photon.com/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Ideas2IT Technologies,Indian IT Services - Mid-size,Chennai,https://www.ideas2it.com,https://www.ideas2it.com/careers,,,manual,custom careers page; no public feed found
+Kumaran Systems,Indian IT Services - Mid-size,Chennai / Toronto,https://www.kumaran.com,https://kumaran.com/careers/,,,manual,custom careers page; no public feed found
+Bahwan CyberTek,Indian IT Services - Mid-size,Chennai / Muscat,https://www.bahwancybertek.com,https://www.bahwancybertek.com,,,manual,custom careers page; no public feed found
+Hinduja Global Solutions,Indian IT Services - Mid-size,Mumbai,https://www.hgs.cx,https://www.hgs.cx,,,manual,custom careers page; no public feed found
+Accion Labs,Indian IT Services - Mid-size,Pune / Pittsburgh,https://www.accionlabs.com,https://www.accionlabs.com,,,manual,custom careers page; no public feed found
+NeoSOFT Technologies,Indian IT Services - Mid-size,Mumbai,https://www.neosofttech.com,https://www.neosofttech.com/careers/,,,manual,custom careers page; no public feed found
+Bitwise,Indian IT Services - Mid-size,Pune,https://www.bitwiseglobal.com,https://www.bitwiseglobal.com/company/careers,,,manual,custom careers page; no public feed found
+Harbinger Group,Indian IT Services - Mid-size,Pune,https://www.harbingergroup.com,https://www.harbingergroup.com,,,manual,custom careers page; no public feed found
+Nihilent,Indian IT Services - Mid-size,Pune,https://www.nihilent.com,https://www.nihilent.com/careers/,,,manual,custom careers page; no public feed found
+Clarion Technologies,Indian IT Services - Mid-size,Pune,https://www.clariontech.com,https://www.clariontech.com/careers,,,manual,custom careers page; no public feed found
+Nitor Infotech,Indian IT Services - Mid-size,Pune,https://www.nitorinfotech.com,https://careers.nitorinfotech.com/,,,manual,custom careers page; no public feed found
+Talentica Software,Indian IT Services - Mid-size,Pune,https://www.talentica.com,https://www.talentica.com/careers/,,,manual,custom careers page; no public feed found
+Calsoft,Indian IT Services - Mid-size,Pune / San Jose,https://www.calsoftinc.com,https://www.calsoftinc.com/career,,,manual,custom careers page; no public feed found
+Mindteck,Indian IT Services - Mid-size,Bengaluru,https://www.mindteck.com,https://www.mindteck.com,,,manual,custom careers page; no public feed found
+SLK Software,Indian IT Services - Mid-size,Bengaluru,https://www.slkgroup.com,https://www.slkgroup.com,,,manual,site did not respond to the check (ConnectionError)
+Sasken Technologies,Indian IT Services - Mid-size,Bengaluru,https://www.sasken.com,https://careers.sasken.com/tb/saskenjobs/,,,manual,custom careers page; no public feed found
+Galaxe Solutions,Indian IT Services - Mid-size,Bengaluru / New Jersey,https://www.galaxe.com,https://info.endava.com/galaxe-has-joined-endava,iCIMS,,manual,no public job feed; check careers page
+Wissen Technology,Indian IT Services - Mid-size,Bengaluru,https://www.wissen.com,https://wissen.com/career/opportunities-wissen-technology,Zoho Recruit,,manual,no public job feed; check careers page
+Thirdware Solution,Indian IT Services - Mid-size,Mumbai,https://www.thirdware.com,https://www.thirdware.com,,,manual,site did not respond to the check (ConnectTimeout)
+Onward Technologies,Indian IT Services - Mid-size,Mumbai,https://www.onwardgroup.com,https://www.onwardgroup.com,,,manual,custom careers page; no public feed found
+Ksolves India,Indian IT Services - Mid-size,Noida,https://www.ksolves.com,https://www.ksolves.com/careers,,,manual,custom careers page; no public feed found
+Mindfire Solutions,Indian IT Services - Mid-size,Bhubaneswar,https://www.mindfiresolutions.com,https://www.mindfiresolutions.com/life-at-mindfire-people-culture-career-opportunities/career/,,,manual,custom careers page; no public feed found
+Successive Digital,Indian IT Services - Mid-size,Noida,https://successive.tech,https://successive.tech/careers/,,,manual,custom careers page; no public feed found
+Compunnel,Indian IT Services - Mid-size,Noida / New Jersey,https://www.compunnel.com,https://www.compunnel.com/jobs/,,,manual,custom careers page; no public feed found
+Celebal Technologies,Indian IT Services - Mid-size,Jaipur,https://celebaltech.com,https://celebaltech.com,,,manual,custom careers page; no public feed found
+Majesco,Indian IT Services - Mid-size,Mumbai / New Jersey,https://www.majesco.com,https://www.majesco.com/why-majesco/careers/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Expleo India,Indian IT Services - Mid-size,Chennai / Paris,https://expleo.com,https://expleo.com,,,manual,custom careers page; no public feed found
+Infocepts,Indian IT Services - Mid-size,Nagpur / Virginia,https://www.infocepts.com,https://www.infocepts.ai/careers/,,,manual,custom careers page; no public feed found
+Searce,Indian IT Services - Mid-size,Pune / Mumbai,https://www.searce.com,https://www.searce.com/join-us,,,manual,custom careers page; no public feed found
+Prolifics,Indian IT Services - Mid-size,Hyderabad / New York,https://prolifics.com,https://prolifics.com,,,manual,custom careers page; no public feed found
+Saven Technologies,Indian IT Services - Mid-size,Hyderabad,https://www.saventech.com,https://www.saventech.com,,,manual,custom careers page; no public feed found
+Techwave,Indian IT Services - Mid-size,Hyderabad / Houston,https://techwave.net,https://techwave.net,,,manual,site did not respond to the check (ConnectTimeout)
+Evoke Technologies,Indian IT Services - Mid-size,Hyderabad / Dayton,https://www.evoketechnologies.com,https://www.evoketechnologies.com,,,manual,site did not respond to the check (HTTP 403)
+MouriTech,Indian IT Services - Mid-size,Hyderabad,https://www.mouritech.com,https://www.mouritech.com/careers/,,,manual,custom careers page; no public feed found
+Pennant Technologies,Indian IT Services - Mid-size,Hyderabad,https://www.pennanttech.com,https://www.pennanttech.com/careers/,,,manual,custom careers page; no public feed found
+Innominds,Indian IT Services - Mid-size,Hyderabad / San Jose,https://www.innominds.com,https://www.innominds.com,,,manual,custom careers page; no public feed found
+Fission Labs,Indian IT Services - Mid-size,Hyderabad / Sunnyvale,https://www.fissionlabs.com,https://www.fissionlabs.com/careers,,,manual,custom careers page; no public feed found
+Zemoso Technologies,Indian IT Services - Mid-size,Hyderabad,https://www.zemosolabs.com,https://www.zemosolabs.com/careers,,,manual,custom careers page; no public feed found
+MAQ Software,Indian IT Services - Mid-size,Hyderabad / Redmond,https://maqsoftware.com,https://maqsoftware.com/careers/,,,manual,custom careers page; no public feed found
+Sagarsoft,Indian IT Services - Mid-size,Hyderabad,https://www.sagarsoft.in,https://www.sagarsoft.in/careers/,,,manual,custom careers page; no public feed found
+Tanla Platforms,Indian IT Services - Mid-size,Hyderabad,https://www.tanla.com,https://www.tanla.com/careers,,,manual,custom careers page; no public feed found
+Intelliswift,Indian IT Services - Mid-size,Pune / Fremont,https://www.intelliswift.com,https://www.intelliswift.com/careers,,,manual,custom careers page; no public feed found
+KANINI,Indian IT Services - Mid-size,Chennai / Nashville,https://kanini.com,https://kanini.com/careers/,,,manual,custom careers page; no public feed found
+Agilisium,Indian IT Services - Mid-size,Chennai / Los Angeles,https://www.agilisium.com,https://www.agilisium.com/people-and-careers,,,manual,custom careers page; no public feed found
+Saama,Indian IT Services - Mid-size,Pune / Campbell,https://www.saama.com,https://www.saama.com,,,manual,custom careers page; no public feed found
+Dynacons Systems & Solutions,Indian IT Services - Mid-size,Mumbai,https://www.dynacons.com,https://careers.dynacons.com/,,,manual,custom careers page; no public feed found
+Allied Digital Services,Indian IT Services - Mid-size,Mumbai,https://www.allieddigital.net,https://www.allieddigital.net/wp-content/plugins/wp-job-openings/assets/css/general.min.css,,,manual,custom careers page; no public feed found
+NIIT Learning Systems,Indian IT Services - Mid-size,Gurugram,https://www.niit.com,https://learnforjobs.niit.com/india/ibsrm,,,manual,custom careers page; no public feed found
+Sify Technologies,Indian IT Services - Mid-size,Chennai,https://www.sifytechnologies.com,https://sifycareer.tallite.com/,,,manual,custom careers page; no public feed found
+Xebia India,Indian IT Services - Mid-size,Gurugram,https://xebia.com,https://xebia.com/careers/,greenhouse,xebiaapac,connected,0 jobs at setup (2026-10-14)
+Tech Mahindra Comviva,Indian IT Services - Mid-size,Gurugram,https://www.comviva.com,https://www.comviva.com/careers/,,,manual,custom careers page; no public feed found
+Atyeti,Indian IT Services - Mid-size,Pune / New Jersey,https://www.atyeti.com,https://www.atyeti.com,,,manual,custom careers page; no public feed found
+Cognine Technologies,Indian IT Services - Mid-size,Hyderabad,https://www.cognine.com,https://cognine.com/careers/,,,manual,custom careers page; no public feed found
+Covalensedigital,Indian IT Services - Mid-size,Hyderabad,https://www.covalensedigital.com,https://www.covalensedigital.com,,,manual,custom careers page; no public feed found
+Ivy Mobility,Indian IT Services - Mid-size,Chennai,https://ivymobility.com,https://ivymobility.com,,,manual,custom careers page; no public feed found
+iLink Digital,Indian IT Services - Mid-size,Chennai / Dallas,https://www.ilink-digital.com,https://www.ilink-digital.com/careers,,,manual,custom careers page; no public feed found
+Bounteous x Accolite,Indian IT Services - Mid-size,Hyderabad / Gurugram,https://www.bounteous.com,https://www.bounteous.com,,,manual,custom careers page; no public feed found
+Tredence,Indian IT Services - Mid-size,Bengaluru / San Jose,https://www.tredence.com,https://www.tredence.com/careers/greatest-of-ai,,,manual,custom careers page; no public feed found
+Systango,Indian IT Services - Mid-size,Indore,https://www.systango.com,https://www.systango.com/careers,,,manual,custom careers page; no public feed found
+Tata Communications (IT services),Indian IT Services - Mid-size,Mumbai,https://www.tatacommunications.com,https://www.tatacommunications.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Appinventiv,Indian IT Services - Small & Emerging,Noida,https://appinventiv.com,https://appinventiv.com/career/,,,manual,custom careers page; no public feed found
+Simform,Indian IT Services - Small & Emerging,Ahmedabad,https://www.simform.com,https://www.simform.com/careers/,,,manual,custom careers page; no public feed found
+Radixweb,Indian IT Services - Small & Emerging,Ahmedabad,https://radixweb.com,https://radixweb.com,,,manual,custom careers page; no public feed found
+Rishabh Software,Indian IT Services - Small & Emerging,Vadodara,https://www.rishabhsoft.com,https://www.rishabhsoft.com/careers,,,manual,custom careers page; no public feed found
+TatvaSoft,Indian IT Services - Small & Emerging,Ahmedabad,https://www.tatvasoft.com,https://www.tatvasoft.com/career,,,manual,custom careers page; no public feed found
+Hidden Brains InfoTech,Indian IT Services - Small & Emerging,Ahmedabad,https://www.hiddenbrains.com,https://www.hiddenbrains.com,,,manual,custom careers page; no public feed found
+OpenXcell,Indian IT Services - Small & Emerging,Ahmedabad,https://www.openxcell.com,https://www.openxcell.com,,,manual,custom careers page; no public feed found
+Konstant Infosolutions,Indian IT Services - Small & Emerging,Jaipur,https://www.konstantinfo.com,https://www.konstantinfo.com,,,manual,custom careers page; no public feed found
+TechAhead,Indian IT Services - Small & Emerging,Noida,https://www.techaheadcorp.com,https://www.techaheadcorp.com,,,manual,custom careers page; no public feed found
+Mindbowser,Indian IT Services - Small & Emerging,Pune,https://www.mindbowser.com,https://www.mindbowser.com/careers/,,,manual,custom careers page; no public feed found
+SourceFuse,Indian IT Services - Small & Emerging,Mohali,https://www.sourcefuse.com,https://www.sourcefuse.com,,,manual,custom careers page; no public feed found
+Netsmartz,Indian IT Services - Small & Emerging,Chandigarh,https://netsmartz.com,https://netsmartz.com,,,manual,custom careers page; no public feed found
+Antino,Indian IT Services - Small & Emerging,Gurugram,https://www.antino.com,https://www.antino.com/careers,,,manual,custom careers page; no public feed found
+Daffodil Software,Indian IT Services - Small & Emerging,Hisar / Gurugram,https://www.daffodilsw.com,https://www.daffodilsw.com,,,manual,custom careers page; no public feed found
+Unified Infotech,Indian IT Services - Small & Emerging,Kolkata,https://www.unifiedinfotech.net,https://www.unifiedinfotech.net,,,manual,custom careers page; no public feed found
+Indus Net Technologies,Indian IT Services - Small & Emerging,Kolkata,https://www.indusnet.co.in,https://www.indusnet.co.in,,,manual,site did not respond to the check (HTTP 403)
+Capital Numbers,Indian IT Services - Small & Emerging,Kolkata,https://www.capitalnumbers.com,https://www.capitalnumbers.com,,,manual,custom careers page; no public feed found
+Webskitters,Indian IT Services - Small & Emerging,Kolkata,https://www.webskitters.com,https://www.webskitters.com,,,manual,custom careers page; no public feed found
+Sparx IT Solutions,Indian IT Services - Small & Emerging,Noida,https://www.sparxitsolutions.com,https://www.sparxitsolutions.com,,,manual,custom careers page; no public feed found
+Hashstudioz,Indian IT Services - Small & Emerging,Noida,https://www.hashstudioz.com,https://www.hashstudioz.com/career.html,,,manual,custom careers page; no public feed found
+Algoworks,Indian IT Services - Small & Emerging,Noida,https://www.algoworks.com,https://www.algoworks.com,,,manual,custom careers page; no public feed found
+Damco Solutions,Indian IT Services - Small & Emerging,Gurugram,https://www.damcogroup.com,https://www.damcogroup.com,,,manual,custom careers page; no public feed found
+Fingent,Indian IT Services - Small & Emerging,Kochi,https://www.fingent.com,https://www.fingent.com,,,manual,custom careers page; no public feed found
+QBurst,Indian IT Services - Small & Emerging,Thiruvananthapuram,https://www.qburst.com,https://www.qburst.com,,,manual,custom careers page; no public feed found
+Experion Technologies,Indian IT Services - Small & Emerging,Thiruvananthapuram,https://experionglobal.com,https://experionglobal.com,,,manual,custom careers page; no public feed found
+Suyati Technologies,Indian IT Services - Small & Emerging,Kochi,https://suyati.com,https://suyati.com,,,manual,custom careers page; no public feed found
+IBS Software,Indian IT Services - Small & Emerging,Thiruvananthapuram,https://www.ibsplc.com,https://www.ibsplc.com/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Robosoft Technologies,Indian IT Services - Small & Emerging,Udupi / Bengaluru,https://www.robosoftin.com,https://www.robosoftin.com,,,manual,custom careers page; no public feed found
+Mantra Labs,Indian IT Services - Small & Emerging,Bengaluru,https://www.mantralabsglobal.com,https://www.mantralabsglobal.com,,,manual,custom careers page; no public feed found
+GeekyAnts,Indian IT Services - Small & Emerging,Bengaluru,https://geekyants.com,https://geekyants.com/careers,,,manual,custom careers page; no public feed found
+Sigmoid,Indian IT Services - Small & Emerging,Bengaluru,https://www.sigmoid.com,https://www.sigmoid.com,,,manual,custom careers page; no public feed found
+Divami Design Labs,Indian IT Services - Small & Emerging,Hyderabad,https://www.divami.com,https://www.divami.com,,,manual,custom careers page; no public feed found
+Opcito Technologies,Indian IT Services - Small & Emerging,Pune,https://www.opcito.com,https://www.opcito.com,,,manual,site did not respond to the check (ConnectionError)
+Coditas,Indian IT Services - Small & Emerging,Pune,https://coditas.com,https://coditas.com,,,manual,site did not respond to the check (ReadTimeout)
+Josh Software,Indian IT Services - Small & Emerging,Pune,https://www.joshsoftware.com,https://www.joshsoftware.com,,,manual,site did not respond to the check (SSLError)
+Synerzip,Indian IT Services - Small & Emerging,Pune,https://www.synerzip.com,https://www.synerzip.com,,,manual,site did not respond to the check (SSLError)
+Cuelogic (now LTIMindtree),Indian IT Services - Small & Emerging,Pune,https://www.ltimindtree.com,https://www.ltimindtree.com,,,manual,site did not respond to the check (ReadTimeout)
+e-Zest Solutions,Indian IT Services - Small & Emerging,Pune,https://www.e-zest.com,https://www.e-zest.com,,,manual,site did not respond to the check (SSLError)
+Rapidops,Indian IT Services - Small & Emerging,Ahmedabad,https://www.rapidops.com,https://www.rapidops.com,,,manual,custom careers page; no public feed found
+Bacancy Technology,Indian IT Services - Small & Emerging,Ahmedabad,https://www.bacancytechnology.com,https://www.bacancytechnology.com,,,manual,site did not respond to the check (SSLError)
+Azilen Technologies,Indian IT Services - Small & Emerging,Ahmedabad,https://www.azilen.com,https://www.azilen.com,,,manual,site did not respond to the check (ConnectionError)
+Moon Technolabs,Indian IT Services - Small & Emerging,Ahmedabad,https://www.moontechnolabs.com,https://www.moontechnolabs.com,,,manual,custom careers page; no public feed found
+Mobisoft Infotech,Indian IT Services - Small & Emerging,Pune,https://mobisoftinfotech.com,https://mobisoftinfotech.com,,,manual,custom careers page; no public feed found
+Cynoteck Technology,Indian IT Services - Small & Emerging,Dehradun,https://www.cynoteck.com,https://www.cynoteck.com,,,manual,site did not respond to the check (SSLError)
+Grazitti Interactive,Indian IT Services - Small & Emerging,Panchkula,https://www.grazitti.com,https://www.grazitti.com,,,manual,site did not respond to the check (SSLError)
+Smartdata Enterprises,Indian IT Services - Small & Emerging,Nagpur / Mohali,https://www.smartdatainc.com,https://www.smartdatainc.com,,,manual,custom careers page; no public feed found
+Kiwitech India,Indian IT Services - Small & Emerging,Noida,https://www.kiwitech.com,https://www.kiwitech.com,,,manual,custom careers page; no public feed found
+Credencys Solutions,Indian IT Services - Small & Emerging,Pune,https://www.credencys.com,https://www.credencys.com,,,manual,custom careers page; no public feed found
+Intuz,Indian IT Services - Small & Emerging,Ahmedabad,https://www.intuz.com,https://www.intuz.com,,,manual,custom careers page; no public feed found
+NeoITO,Indian IT Services - Small & Emerging,Kochi,https://www.neoito.com,https://www.neoito.com,,,manual,custom careers page; no public feed found
+Mobiloitte,Indian IT Services - Small & Emerging,New Delhi,https://www.mobiloitte.com,https://www.mobiloitte.com,,,manual,custom careers page; no public feed found
+Seasia Infotech,Indian IT Services - Small & Emerging,Mohali,https://www.seasiainfotech.com,https://www.seasiainfotech.com,,,manual,custom careers page; no public feed found
+Zymr,Indian IT Services - Small & Emerging,Ahmedabad / San Jose,https://www.zymr.com,https://www.zymr.com,,,manual,custom careers page; no public feed found
+Embitel Technologies,Indian IT Services - Small & Emerging,Bengaluru,https://www.embitel.com,https://www.embitel.com,,,manual,custom careers page; no public feed found
+Mindstix Software Labs,Indian IT Services - Small & Emerging,Pune,https://www.mindstix.com,https://www.mindstix.com,,,manual,custom careers page; no public feed found
+3SC Solutions,Indian IT Services - Small & Emerging,Gurugram,https://www.3scsolution.com,https://www.3scsolution.com,,,manual,custom careers page; no public feed found
+Prismberry,Indian IT Services - Small & Emerging,Noida,https://prismberry.com,https://prismberry.com/career/,,,manual,custom careers page; no public feed found
+Quadrant Technologies,Indian IT Services - Small & Emerging,Hyderabad / Redmond,https://www.quadranttechnologies.com,https://www.quadranttechnologies.com/careers/,,,manual,custom careers page; no public feed found
+Kanerika,Indian IT Services - Small & Emerging,Hyderabad / Austin,https://kanerika.com,https://kanerika.com,,,manual,custom careers page; no public feed found
+Optimum Infosystem,Indian IT Services - Small & Emerging,Mumbai,https://www.optimuminfosystem.com,https://www.optimuminfosystem.com,,,manual,site did not respond to the check (ConnectionError)
+L&T Technology Services,Engineering & R&D Services,Vadodara / Bengaluru,https://www.ltts.com,https://www.ltts.com/careers,,,manual,custom careers page; no public feed found
+Tata Elxsi,Engineering & R&D Services,Bengaluru,https://www.tataelxsi.com,https://www.tataelxsi.com/careers,,,manual,custom careers page; no public feed found
+KPIT Technologies,Engineering & R&D Services,Pune,https://www.kpit.com,https://www.kpit.com/careers-overview/,,,manual,custom careers page; no public feed found
+Cyient,Engineering & R&D Services,Hyderabad,https://www.cyient.com,https://www.cyient.com/careers,,,manual,custom careers page; no public feed found
+Tata Technologies,Engineering & R&D Services,Pune,https://www.tatatechnologies.com,https://www.tatatechnologies.com/careers/,,,manual,site did not respond to the check (HTTP 403)
+QuEST Global,Engineering & R&D Services,Bengaluru / Singapore,https://www.quest-global.com,https://careers.quest-global.com/global/en,Phenom,,manual,no public job feed; check careers page
+Hinduja Tech,Engineering & R&D Services,Chennai,https://hindujatech.com,https://hindujatech.com/news-and-press-releases/why-hinduja-tech-is-bringing-high-value-jobs-to-mexico,,,manual,custom careers page; no public feed found
+ACL Digital,Engineering & R&D Services,Bengaluru / San Jose,https://www.acldigital.com,https://www.acldigital.com/careers,,,manual,custom careers page; no public feed found
+Mistral Solutions,Engineering & R&D Services,Bengaluru,https://www.mistralsolutions.com,https://mistralsolutions.com/career/,,,manual,custom careers page; no public feed found
+Ignitarium,Engineering & R&D Services,Bengaluru,https://ignitarium.com,https://ignitarium.com,,,manual,custom careers page; no public feed found
+eInfochips (Arrow),Engineering & R&D Services,Ahmedabad,https://www.einfochips.com,https://www.einfochips.com/careers/,,,manual,site did not respond to the check (HTTP 403)
+Tessolve,Engineering & R&D Services,Bengaluru,https://www.tessolve.com,https://www.tessolve.com,,,manual,custom careers page; no public feed found
+Moschip Technologies,Engineering & R&D Services,Hyderabad,https://moschip.com,https://moschip.com/careers/,,,manual,custom careers page; no public feed found
+Alten India,Engineering & R&D Services,Bengaluru / Paris,https://www.alten.com,https://www.alten.com,,,manual,site did not respond to the check (HTTP 403)
+Akkodis India,Engineering & R&D Services,Bengaluru,https://www.akkodis.com,https://www.akkodis.com,,,manual,custom careers page; no public feed found
+Belcan India,Engineering & R&D Services,Bengaluru,https://www.belcan.com,https://www.belcan.com,,,manual,custom careers page; no public feed found
+Cientra,Engineering & R&D Services,Hyderabad,https://www.cientra.com,https://www.cientra.com,,,manual,custom careers page; no public feed found
+Axiscades Technologies,Engineering & R&D Services,Bengaluru,https://www.axiscades.com,https://www.axiscades.com,,,manual,custom careers page; no public feed found
+Global Edge Software,Engineering & R&D Services,Bengaluru,https://www.globaledgesoft.com,https://www.globaledgesoft.com,,,manual,site did not respond to the check (SSLError)
+Incise Infotech,Engineering & R&D Services,Noida,https://www.incisetech.com,https://www.incisetech.com,,,manual,site did not respond to the check (ConnectionError)
+SoCtronics,Engineering & R&D Services,Hyderabad,https://www.soctronics.com,https://soctronics.com/career/,,,manual,custom careers page; no public feed found
+Mobiveil,Engineering & R&D Services,Chennai,https://www.mobiveil.com,https://www.mobiveil.com,,,manual,custom careers page; no public feed found
+VVDN Technologies,Engineering & R&D Services,Gurugram,https://www.vvdntech.com,https://www.vvdntech.com/careers,,,manual,custom careers page; no public feed found
+Dexcel Electronics Designs,Engineering & R&D Services,Bengaluru,https://www.dexceldesigns.com,https://www.dexceldesigns.com,,,manual,custom careers page; no public feed found
+Fractal Analytics,"Data, Analytics & AI Services",Mumbai,https://fractal.ai,https://fractal.ai/careers/,,,manual,site did not respond to the check (HTTP 500)
+Mu Sigma,"Data, Analytics & AI Services",Bengaluru / Chicago,https://www.mu-sigma.com,https://www.mu-sigma.com/career/,,,manual,custom careers page; no public feed found
+Tiger Analytics,"Data, Analytics & AI Services",Chennai / Santa Clara,https://www.tigeranalytics.com,https://www.tigeranalytics.com/about-us/current-openings/,Workable,,manual,board name not detected; add it in the feed column to connect
+LatentView Analytics,"Data, Analytics & AI Services",Chennai,https://www.latentview.com,https://www.latentview.com/careers/,,,manual,site did not respond to the check (HTTP 404)
+Quantiphi,"Data, Analytics & AI Services",Mumbai / Marlborough,https://quantiphi.com,https://quantiphi.com/careers/,workday,https://quantiphi.wd1.myworkdayjobs.com/Careers_at_Quantiphi,connected,6 India jobs at setup (2026-10-14)
+Course5 Intelligence,"Data, Analytics & AI Services",Mumbai,https://www.course5i.com,https://www.course5i.com,,,manual,site did not respond to the check (ConnectionError)
+MathCo (TheMathCompany),"Data, Analytics & AI Services",Bengaluru / Chicago,https://mathco.com,https://mathco.com/careers/,,,manual,custom careers page; no public feed found
+Polestar Analytics,"Data, Analytics & AI Services",Noida,https://www.polestarllp.com,https://www.polestarllp.com,,,manual,custom careers page; no public feed found
+Gramener (Straive),"Data, Analytics & AI Services",Hyderabad,https://gramener.com,https://gramener.com/wp-content/plugins/xamin-elementor-extensions/includes/Elementor/assets/css/career.css?ver=3.4.6,,,manual,custom careers page; no public feed found
+Straive (SPi Global),"Data, Analytics & AI Services",Chennai,https://www.straive.com,https://www.straive.com,,,manual,custom careers page; no public feed found
+Affine Analytics,"Data, Analytics & AI Services",Bengaluru,https://affine.ai,https://affine.ai,,,manual,custom careers page; no public feed found
+ZS Associates,"Data, Analytics & AI Services",Pune / Evanston,https://www.zs.com,https://www.zs.com/careers,iCIMS,,manual,no public job feed; check careers page
+Axtria,"Data, Analytics & AI Services",Gurugram / New Jersey,https://www.axtria.com,https://www.axtria.com/axtria-careers/,,,manual,custom careers page; no public feed found
+Evalueserve,"Data, Analytics & AI Services",Gurugram,https://www.evalueserve.com,https://www.evalueserve.com/careers/,,,manual,custom careers page; no public feed found
+Decision Point Analytics,"Data, Analytics & AI Services",Gurugram,https://www.decisionpoint.in,https://www.decisionpoint.in,,,manual,site did not respond to the check (ConnectionError)
+Indegene,"Data, Analytics & AI Services",Bengaluru,https://www.indegene.com,https://careers.indegene.com/,,,manual,custom careers page; no public feed found
+Ganit Business Solutions,"Data, Analytics & AI Services",Chennai,https://www.ganitinc.com,https://www.ganitinc.com/careers,Zoho Recruit,,manual,no public job feed; check careers page
+Hansa Cequity,"Data, Analytics & AI Services",Mumbai,https://www.hansacequity.com,https://www.hansacequity.com,,,manual,custom careers page; no public feed found
+Blend360 India,"Data, Analytics & AI Services",Hyderabad / Columbia,https://www.blend360.com,https://www.blend360.com,,,manual,custom careers page; no public feed found
+Aays Analytics,"Data, Analytics & AI Services",Gurugram,https://www.aays.com,https://www.aays.com,,,manual,site did not respond to the check (SSLError)
+Lumiq,"Data, Analytics & AI Services",Noida,https://lumiq.ai,https://lumiq.ai/careers/,Zoho Recruit,,manual,no public job feed; check careers page
+Ugam Solutions (Merkle),"Data, Analytics & AI Services",Mumbai,https://www.merkle.com,https://www.merkle.com/en/careers.html,,,manual,custom careers page; no public feed found
+Crisil (GR&A / Analytics),"Data, Analytics & AI Services",Mumbai,https://www.crisil.com,https://www.crisil.com/en/home/careers.html,,,manual,custom careers page; no public feed found
+Acuity Knowledge Partners,"Data, Analytics & AI Services",Gurugram / London,https://www.acuitykp.com,https://www.acuitykp.com,,,manual,site did not respond to the check (HTTP 403)
+Exusia,"Data, Analytics & AI Services",Pune / New York,https://www.exusia.com,https://www.exusia.com,,,manual,site did not respond to the check (SSLError)
+Datagrokr,"Data, Analytics & AI Services",Bengaluru,https://www.datagrokr.com,https://www.datagrokr.com,,,manual,custom careers page; no public feed found
+USEReady,"Data, Analytics & AI Services",Bengaluru / New York,https://www.useready.com,https://careers.kula.ai/useready,,,manual,custom careers page; no public feed found
+Kipi.ai,"Data, Analytics & AI Services",Bengaluru,https://kipi.ai,https://www.kipi.ai/,smartrecruiters,WNSGlobalServices144,connected,feed belongs to WNS (Kipi.ai's parent); 25 India jobs at setup (2026-10-14)
+Factspan Analytics,"Data, Analytics & AI Services",Bengaluru / Seattle,https://www.factspan.com,https://www.factspan.com/careers/,,,manual,custom careers page; no public feed found
+Cartesian Consulting,"Data, Analytics & AI Services",Mumbai,https://www.cartesianconsulting.com,https://www.cartesianconsulting.com,,,manual,site did not respond to the check (SSLError)
+Accenture India,MNC IT Services (Large India Operations),Bengaluru / Dublin,https://www.accenture.com,https://www.accenture.com/in-en/careers,workday,https://accenture.wd103.myworkdayjobs.com/AccentureCareers,connected,20 India jobs at setup (2026-10-14)
+Cognizant,MNC IT Services (Large India Operations),Chennai / Teaneck,https://www.cognizant.com,https://careers.cognizant.com/global-en/,,,manual,custom careers page; no public feed found
+Capgemini India,MNC IT Services (Large India Operations),Mumbai / Paris,https://www.capgemini.com,https://www.capgemini.com/in-en/careers/,,,manual,custom careers page; no public feed found
+IBM India,MNC IT Services (Large India Operations),Bengaluru / Armonk,https://www.ibm.com,https://www.ibm.com/careers,,,manual,custom careers page; no public feed found
+DXC Technology India,MNC IT Services (Large India Operations),Bengaluru / Ashburn,https://dxc.com,https://careers.dxc.com/,workday,https://dxctechnology.wd1.myworkdayjobs.com/DXCJobs,connected,20 India jobs at setup (2026-10-14)
+NTT DATA India,MNC IT Services (Large India Operations),Bengaluru / Tokyo,https://www.nttdata.com,https://careers.nttdata.com/global/en,workday,https://nttglobaldatacenters.wd501.myworkdayjobs.com/External,connected,2 India jobs at setup (2026-10-14)
+Kyndryl India,MNC IT Services (Large India Operations),Bengaluru / New York,https://www.kyndryl.com,https://www.kyndryl.com/us/en/careers,workday,https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers,connected,20 India jobs at setup (2026-10-14); early careers: https://kyndryl.wd5.myworkdayjobs.com/KyndrylEarlyCareers
+CGI India,MNC IT Services (Large India Operations),Bengaluru / Montreal,https://www.cgi.com,https://www.cgi.com/en/careers,,,manual,custom careers page; no public feed found
+Atos / Eviden India,MNC IT Services (Large India Operations),Mumbai / Paris,https://atos.net,https://atos.net/en/join-us,,,manual,custom careers page; no public feed found
+Sopra Steria India,MNC IT Services (Large India Operations),Noida / Paris,https://www.soprasteria.in,https://www.soprasteria.in,,,manual,custom careers page; no public feed found
+Fujitsu Consulting India,MNC IT Services (Large India Operations),Pune / Tokyo,https://www.fujitsu.com,https://www.fujitsu.com,,,manual,site did not respond to the check (HTTP 429)
+Hitachi Digital Services,MNC IT Services (Large India Operations),Hyderabad / Tokyo,https://hitachids.com,https://www.hitachids.com/careers/,,,manual,custom careers page; no public feed found
+GlobalLogic (Hitachi),MNC IT Services (Large India Operations),Noida / San Jose,https://www.globallogic.com,https://www.globallogic.com/careers/,,,manual,custom careers page; no public feed found
+EPAM Systems India,MNC IT Services (Large India Operations),Hyderabad / Newtown,https://www.epam.com,https://www.epam.com/careers,,,manual,site did not respond to the check (HTTP 403)
+Thoughtworks India,MNC IT Services (Large India Operations),Bengaluru / Chicago,https://www.thoughtworks.com,https://www.thoughtworks.com/careers,,,manual,custom careers page; no public feed found
+Publicis Sapient India,MNC IT Services (Large India Operations),Gurugram / Boston,https://www.publicissapient.com,https://careers.publicissapient.com/,iCIMS,,manual,no public job feed; check careers page
+Unisys India,MNC IT Services (Large India Operations),Bengaluru / Blue Bell,https://www.unisys.com,https://www.unisys.com/careers/,workday,https://unisys.wd5.myworkdayjobs.com/External,connected,17 India jobs at setup (2026-10-14)
+Avanade India,MNC IT Services (Large India Operations),Bengaluru / Seattle,https://www.avanade.com,https://www.avanade.com/en/404-error?url=/en/careers,,,manual,custom careers page; no public feed found
+Endava India,MNC IT Services (Large India Operations),Hyderabad / London,https://www.endava.com,https://www.endava.com/careers,,,manual,custom careers page; no public feed found
+Globant India,MNC IT Services (Large India Operations),Pune / Luxembourg,https://www.globant.com,https://career.globant.com/,,,manual,custom careers page; no public feed found
+Grid Dynamics India,MNC IT Services (Large India Operations),Hyderabad / San Ramon,https://www.griddynamics.com,https://www.griddynamics.com/careers,,,manual,custom careers page; no public feed found
+3Pillar Global India,MNC IT Services (Large India Operations),Noida / Fairfax,https://www.3pillarglobal.com,https://www.3pillar.ai/careers/,Darwinbox,,manual,no public job feed; check careers page
+Luxoft India (DXC),MNC IT Services (Large India Operations),Bengaluru,https://www.luxoft.com,https://career.luxoft.com/jobs/senior-python-developer-with-pyspark-and-aws-28410,,,manual,custom careers page; no public feed found
+Insight Enterprises India,MNC IT Services (Large India Operations),Gurugram,https://www.insight.com,https://www.insight.com,,,manual,site did not respond to the check (HTTP 403)
+Softchoice / SoftwareONE India,MNC IT Services (Large India Operations),Bengaluru,https://www.softwareone.com,https://www.softwareone.com,,,manual,site did not respond to the check (HTTP 429)
+Rackspace Technology India,MNC IT Services (Large India Operations),Gurugram,https://www.rackspace.com,https://www.rackspace.com/careers,,,manual,site did not respond to the check (ReadTimeout)
+Valtech India,MNC IT Services (Large India Operations),Bengaluru / Paris,https://www.valtech.com,https://www.valtech.com/career/jobs/,,,manual,custom careers page; no public feed found
+Apexon (formerly Infostretch),MNC IT Services (Large India Operations),Ahmedabad / Santa Clara,https://www.apexon.com,https://www.apexon.com/about/careers/,,,manual,custom careers page; no public feed found
+QualiTest India,MNC IT Services (Large India Operations),Bengaluru,https://www.qualitestgroup.com,https://www.quality-ai.com/careers,,,manual,custom careers page; no public feed found
+Zuhlke India,MNC IT Services (Large India Operations),Hyderabad,https://www.zuehlke.com,https://www.zuehlke.com/de,workday,https://zuehlke.wd3.myworkdayjobs.com/Zuhlke-Careers,connected,0 India jobs at setup (2026-10-14)
+Mindsprint (Olam),MNC IT Services (Large India Operations),Chennai,https://www.mindsprint.com,https://www.mindsprint.com/,Darwinbox,,manual,no public job feed; check careers page
+Bristlecone,MNC IT Services (Large India Operations),Pune / San Jose,https://www.bristlecone.com,https://www.bristlecone.com,,,manual,custom careers page; no public feed found
+NTT DATA Business Solutions India,MNC IT Services (Large India Operations),Hyderabad,https://nttdata-solutions.com,https://nttdata-solutions.com/in-en/careers/diversity/,,,manual,custom careers page; no public feed found
+Optiv India (security),MNC IT Services (Large India Operations),Bengaluru,https://www.optiv.com,https://www.optiv.com/company/careers,workday,https://optiv.wd5.myworkdayjobs.com/Optiv_Careers,connected,8 India jobs at setup (2026-10-14)
+Conduent India,MNC IT Services (Large India Operations),Noida,https://www.conduent.com,https://careers.conduent.com/us/en,Phenom,,manual,no public job feed; check careers page
+Xerox Technology Services India,MNC IT Services (Large India Operations),Chennai,https://www.xerox.com,https://www.xerox.com/en-us/jobs,,,manual,custom careers page; no public feed found
+Ciklum India,MNC IT Services (Large India Operations),Hyderabad,https://www.ciklum.com,https://jobs.ciklum.com/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Altisource India,MNC IT Services (Large India Operations),Bengaluru,https://www.altisource.com,https://www.altisource.com/about-us/careers/,smartrecruiters,Altisource,connected,21 India jobs at setup (2026-10-14)
+Deloitte India (incl. USI),Consulting (Big 4 & Management / Tech Consulting),Mumbai / Hyderabad,https://www2.deloitte.com/in,https://www.deloitte.com/in/en/careers.html,,,manual,custom careers page; no public feed found
+EY India & EY GDS,Consulting (Big 4 & Management / Tech Consulting),Gurugram / Bengaluru,https://www.ey.com/en_in,https://www.ey.com/en_in/careers,SAP SuccessFactors,,manual,no public job feed; check careers page
+PwC India & PwC AC,Consulting (Big 4 & Management / Tech Consulting),Kolkata / Bengaluru,https://www.pwc.in,https://www.pwc.in/careers.html,,,manual,custom careers page; no public feed found
+KPMG India & KGS,Consulting (Big 4 & Management / Tech Consulting),Mumbai / Bengaluru,https://kpmg.com/in,https://kpmg.com/in/en/careers.html,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Grant Thornton Bharat,Consulting (Big 4 & Management / Tech Consulting),New Delhi,https://www.grantthornton.in,https://www.grantthornton.in/en/careers/,,,manual,custom careers page; no public feed found
+BDO India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.bdo.in,https://www.bdo.in/en-gb/careers,,,manual,custom careers page; no public feed found
+RSM India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.rsmindia.in,https://www.rsm.global/india/careers,,,manual,custom careers page; no public feed found
+Protiviti India,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.protiviti.com/in-en,https://www.protiviti.com/in-en/careers,,,manual,custom careers page; no public feed found
+McKinsey & Company India,Consulting (Big 4 & Management / Tech Consulting),Gurugram / Mumbai,https://www.mckinsey.com,https://www.mckinsey.com/careers,,,manual,site did not respond to the check (ReadTimeout)
+Boston Consulting Group India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.bcg.com,https://careers.bcg.com/global/en/,Phenom,,manual,no public job feed; check careers page
+Bain & Company India,Consulting (Big 4 & Management / Tech Consulting),Gurugram / Mumbai,https://www.bain.com,https://www.bain.com/careers/,,,manual,custom careers page; no public feed found
+Kearney India,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.kearney.com,https://www.kearney.com,,,manual,site did not respond to the check (HTTP 403)
+Alvarez & Marsal India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.alvarezandmarsal.com,https://www.alvarezandmarsal.com,,,manual,site did not respond to the check (HTTP 403)
+Gartner India,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.gartner.com,https://jobs.gartner.com/,,,manual,custom careers page; no public feed found
+Everest Group India,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.everestgrp.com,https://www.everestgrp.com/careers/,,,manual,custom careers page; no public feed found
+ISG India,Consulting (Big 4 & Management / Tech Consulting),Bengaluru,https://isg-one.com,https://isg-one.com/careers,Jobvite,,manual,no public job feed; check careers page
+Avalon Consulting,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.consultavalon.com,https://www.consultavalon.com/work-with-us/,,,manual,custom careers page; no public feed found
+Technopak Advisors,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.technopak.com,https://tkc.in/careers/,,,manual,custom careers page; no public feed found
+Praxis Global Alliance,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.praxisga.com,https://www.praxisga.com/career,,,manual,custom careers page; no public feed found
+Redseer Strategy Consultants,Consulting (Big 4 & Management / Tech Consulting),Bengaluru,https://redseer.com,https://redseer.com/careers/,,,manual,custom careers page; no public feed found
+1Lattice,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.1lattice.com,https://1lattice.hire.trakstar.com/jobs/fk0zq42?source=,,,manual,custom careers page; no public feed found
+Nexdigm,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.nexdigm.com,https://www.nexdigm.com/careers/,,,manual,custom careers page; no public feed found
+Crowe India,Consulting (Big 4 & Management / Tech Consulting),New Delhi,https://www.crowe.com/in,https://www.crowe.com/in,,,manual,site did not respond to the check (HTTP 403)
+Baker Tilly ASA India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.bakertillyasa.com,https://www.bakertillyasa.com,,,manual,site did not respond to the check (ConnectionError)
+Mazars (Forvis Mazars) India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.forvismazars.com/in,https://careers-asia.forvismazars.com/india/,,,manual,custom careers page; no public feed found
+Synergy Consulting,Consulting (Big 4 & Management / Tech Consulting),New Delhi,https://www.synergyconsultingifa.com,https://www.synergyconsultingifa.com/careers/,,,manual,custom careers page; no public feed found
+Mahindra Consulting Engineers,Consulting (Big 4 & Management / Tech Consulting),Chennai,https://www.mahindraconsulting.com,https://www.mahindraconsulting.com,,,manual,site did not respond to the check (ConnectionError)
+Tata Strategic Management Group,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.tsmg.com,https://www.tata.com/careers,,,manual,custom careers page; no public feed found
+Capco India,Consulting (Big 4 & Management / Tech Consulting),Pune / Bengaluru,https://www.capco.com,https://www.capco.com/Careers/Job-Search,,,manual,custom careers page; no public feed found
+Sia Partners India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.sia-partners.com,https://www.sia-partners.com/en/join-us,,,manual,custom careers page; no public feed found
+Slalom India,Consulting (Big 4 & Management / Tech Consulting),Hyderabad,https://www.slalom.com,https://www.slalom.com/us/en/careers,,,manual,custom careers page; no public feed found
+Oliver Wyman India,Consulting (Big 4 & Management / Tech Consulting),Gurugram,https://www.oliverwyman.com,https://www.oliverwyman.com/careers/recruiting-events.html,,,manual,custom careers page; no public feed found
+Roland Berger India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.rolandberger.com,https://www.rolandberger.com/en/Join/Join-Us/Overview/,,,manual,custom careers page; no public feed found
+Arthur D. Little India,Consulting (Big 4 & Management / Tech Consulting),Mumbai,https://www.adlittle.com,https://www.adlittle.com,,,manual,site did not respond to the check (HTTP 403)
+North Highland India,Consulting (Big 4 & Management / Tech Consulting),Bengaluru,https://www.northhighland.com,https://careers.northhighland.com/,,,manual,custom careers page; no public feed found
+West Monroe India,Consulting (Big 4 & Management / Tech Consulting),Bengaluru,https://www.westmonroe.com,https://www.westmonroe.com/careers,,,manual,custom careers page; no public feed found
+Huron Consulting India,Consulting (Big 4 & Management / Tech Consulting),Bengaluru,https://www.huronconsultinggroup.com,https://www.huronconsultinggroup.com/en-in,workday,https://huron.wd1.myworkdayjobs.com/huroncareers,connected,20 India jobs at setup (2026-10-14)
+Guidehouse India,Consulting (Big 4 & Management / Tech Consulting),Bengaluru / Thiruvananthapuram,https://guidehouse.com,https://guidehouse.com/,workday,https://guidehouse.wd1.myworkdayjobs.com/External,connected,20 India jobs at setup (2026-10-14)
+Genpact,BPM / IT-enabled Services,Gurugram / New York,https://www.genpact.com,https://www.genpact.com/careers,workday,https://genpact.wd108.myworkdayjobs.com/External_Careers,connected,17 India jobs at setup (2026-10-14)
+EXL Service,BPM / IT-enabled Services,Noida / New York,https://www.exlservice.com,https://www.exlservice.com/careers,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+WNS,BPM / IT-enabled Services,Mumbai,https://www.wns.com,https://www.wns.com/about-us/careers,,,manual,custom careers page; no public feed found
+Firstsource Solutions,BPM / IT-enabled Services,Mumbai,https://www.firstsource.com,https://www.firstsource.com/careers,,,manual,custom careers page; no public feed found
+Concentrix India,BPM / IT-enabled Services,Bengaluru / Newark,https://www.concentrix.com,https://jobs.concentrix.com/,workday,https://cnx.wd1.myworkdayjobs.com/external_global,connected,20 India jobs at setup (2026-10-14)
+Teleperformance India,BPM / IT-enabled Services,Gurugram / Paris,https://www.teleperformance.com,https://www.tp.com/en-us/careers/job-opportunities/,,,manual,custom careers page; no public feed found
+TaskUs India,BPM / IT-enabled Services,Chennai / New Braunfels,https://www.taskus.com,https://www.taskus.com/contact-us/for-job-seekers/,,,manual,custom careers page; no public feed found
+iEnergizer,BPM / IT-enabled Services,Noida,https://www.ienergizer.com,https://www.ienergizer.com,,,manual,custom careers page; no public feed found
+Startek / Aegis,BPM / IT-enabled Services,Mumbai,https://www.startek.com,https://www.startek.com/careers/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Alldigi Tech (Allsec),BPM / IT-enabled Services,Chennai,https://www.alldigitech.com,https://www.alldigitech.com/career/,,,manual,custom careers page; no public feed found
+eClerx Services,BPM / IT-enabled Services,Mumbai,https://eclerx.com,https://eclerx.com/careers/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+Omega Healthcare,BPM / IT-enabled Services,Bengaluru,https://www.omegahms.com,https://www.omegahms.com/,Oracle Recruiting Cloud,,manual,no public job feed; check careers page
+AGS Health,BPM / IT-enabled Services,Chennai,https://www.agshealth.com,https://www.agshealth.com,,,manual,custom careers page; no public feed found
+R1 RCM India,BPM / IT-enabled Services,Gurugram,https://www.r1rcm.com,https://www.r1rcm.com,,,manual,site did not respond to the check (HTTP 403)
+Access Healthcare,BPM / IT-enabled Services,Chennai,https://accesshealthcare.com,https://www.accesshealthcare.com/careers,,,manual,custom careers page; no public feed found
+Ventra Health India,BPM / IT-enabled Services,Chennai,https://ventrahealth.com,https://ventrahealth.com/careers/,iCIMS,,manual,no public job feed; check careers page
+CorroHealth (Episource),BPM / IT-enabled Services,Chennai,https://www.corrohealth.com,https://corrohealth.com/,workday,https://corrohealth.wd1.myworkdayjobs.com/Corro,connected,0 India jobs at setup (2026-10-14)
+Sitel / Foundever India,BPM / IT-enabled Services,Mumbai,https://www.foundever.com,https://jobs.foundever.com/?utm_source=sitelcareers&utm_medium=ctaheader,SAP SuccessFactors,,manual,no public job feed; check careers page
+Conneqt Business Solutions (Tata),BPM / IT-enabled Services,Hyderabad,https://www.conneqtcorp.com,https://www.conneqtcorp.com,,,manual,site did not respond to the check (ConnectTimeout)
+Vee Technologies,BPM / IT-enabled Services,Bengaluru,https://www.veetechnologies.com,https://www.veetechnologies.com/industries/electronic-governance/data-entry-and-qc-process-for-bank-account-opening.htm,,,manual,custom careers page; no public feed found
+Integreon India,BPM / IT-enabled Services,Mumbai,https://www.integreon.com,https://www.integreon.com/,iCIMS,,manual,no public job feed; check careers page
+Lumina Datamatics,BPM / IT-enabled Services,Mumbai,https://luminadatamatics.com,https://luminadatamatics.com,,,manual,site did not respond to the check (SSLError)
+iMerit,BPM / IT-enabled Services,Kolkata,https://imerit.net,https://imerit.ai/careers/,,,manual,custom careers page; no public feed found
+Quatrro Global Services,BPM / IT-enabled Services,Gurugram,https://www.quatrro.com,https://www.quatrro.com,,,manual,custom careers page; no public feed found
+ResultsCX India,BPM / IT-enabled Services,Gurugram,https://www.resultscx.com,https://www.resultscx.com,,,manual,custom careers page; no public feed found
+Infinx Healthcare,BPM / IT-enabled Services,Bengaluru,https://www.infinx.com,https://www.infinx.com,,,manual,custom careers page; no public feed found
+Cotiviti India,BPM / IT-enabled Services,Hyderabad / Pune,https://www.cotiviti.com,https://www.cotiviti.com/,iCIMS,,manual,no public job feed; check careers page
+CtrlS Datacenters,"Cloud, Infrastructure & Cybersecurity Services",Hyderabad,https://www.ctrls.com,https://www.ctrls.com/careers/,,,manual,custom careers page; no public feed found
+Cloud4C,"Cloud, Infrastructure & Cybersecurity Services",Hyderabad,https://www.cloud4c.com,https://www.cloud4c.com,,,manual,site did not respond to the check (timed out)
+Yotta Data Services,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://yotta.com,https://yotta.com/careers/,Darwinbox,,manual,no public job feed; check careers page
+Nxtra by Airtel,"Cloud, Infrastructure & Cybersecurity Services",Gurugram,https://www.nxtra.in,https://www.nxtra.in,,,manual,custom careers page; no public feed found
+CloudThat,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.cloudthat.com,https://www.cloudthat.com/careers/,Keka,,manual,no public job feed; check careers page
+Minfy,"Cloud, Infrastructure & Cybersecurity Services",Hyderabad,https://minfytech.com,https://minfytech.com/careers,Keka,,manual,no public job feed; check careers page
+Rapyder Cloud Solutions,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.rapyder.com,https://www.rapyder.com,,,manual,site did not respond to the check (timed out)
+Ankercloud,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.ankercloud.com,https://www.ankercloud.com,,,manual,site did not respond to the check (timed out)
+Shellkode,"Cloud, Infrastructure & Cybersecurity Services",Chennai,https://www.shellkode.com,https://www.shellkode.com/company/careers/,Zoho Recruit,,manual,no public job feed; check careers page
+Workmates Core2Cloud,"Cloud, Infrastructure & Cybersecurity Services",Kolkata,https://www.cloudworkmates.com,https://www.cloudworkmates.com,,,manual,site did not respond to the check (timed out)
+Umbrella Infocare,"Cloud, Infrastructure & Cybersecurity Services",Noida,https://www.umbrellainfocare.com,https://www.umbrellainfocare.com/,Darwinbox,,manual,no public job feed; check careers page
+ESDS Software Solution,"Cloud, Infrastructure & Cybersecurity Services",Nashik,https://www.esds.co.in,https://www.esds.co.in/,Darwinbox,,manual,no public job feed; check careers page
+HCL Infosystems,"Cloud, Infrastructure & Cybersecurity Services",Noida,https://www.hclinfosystems.in,https://www.hclinfosystems.in,,,manual,custom careers page; no public feed found
+Microland,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.microland.com,https://www.microland.com,,,manual,site did not respond to the check (timed out)
+Inspira Enterprise,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.inspiraenterprise.com,https://www.inspiraenterprise.com,,,manual,site did not respond to the check (timed out)
+Locuz Enterprise Solutions,"Cloud, Infrastructure & Cybersecurity Services",Hyderabad,https://www.locuz.com,https://www.locuz.com,,,manual,custom careers page; no public feed found
+Progressive Infotech,"Cloud, Infrastructure & Cybersecurity Services",Gurugram,https://www.progressive.in,https://www.progressive.in,,,manual,site did not respond to the check (timed out)
+Orient Technologies,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.orient-technologies.com,https://www.orient-technologies.com,,,manual,custom careers page; no public feed found
+Team Computers,"Cloud, Infrastructure & Cybersecurity Services",Gurugram,https://www.teamcomputers.com,https://www.teamcomputers.com,,,manual,site did not respond to the check (timed out)
+Rahi Systems,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru / Fremont,https://www.rahisystems.com,https://www.rahisystems.com,,,manual,site did not respond to the check (HTTP 403)
+Aujas Cybersecurity,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.aujas.com,https://www.aujas.com,,,manual,site did not respond to the check (timed out)
+Network Intelligence,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.niiconsulting.com,https://www.niiconsulting.com,,,manual,site did not respond to the check (timed out)
+Sequretek,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.sequretek.com,https://www.sequretek.com,,,manual,custom careers page; no public feed found
+TAC Security,"Cloud, Infrastructure & Cybersecurity Services",Gurugram,https://tacsecurity.com,https://tacsecurity.com,,,manual,site did not respond to the check (timed out)
+SecureLayer7,"Cloud, Infrastructure & Cybersecurity Services",Pune,https://securelayer7.net,https://securelayer7.net,,,manual,site did not respond to the check (timed out)
+Kratikal Tech,"Cloud, Infrastructure & Cybersecurity Services",Noida,https://kratikal.com,https://kratikal.com,,,manual,custom careers page; no public feed found
+iValue InfoSolutions,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.ivalue.co.in,https://www.ivalue.co.in,,,manual,custom careers page; no public feed found
+Redington Cloud & Services,"Cloud, Infrastructure & Cybersecurity Services",Chennai,https://www.redingtongroup.com,https://www.redingtongroup.com,,,manual,site did not respond to the check (timed out)
+Ingram Micro India (services),"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.ingrammicro.com,https://www.ingrammicro.com,,,manual,site did not respond to the check (ReadTimeout)
+Crayon Software Experts India,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.crayon.com,https://www.crayon.com,,,manual,custom careers page; no public feed found
+SISA Information Security,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://www.sisainfosec.com,https://www.sisainfosec.com,,,manual,site did not respond to the check (timed out)
+Varutra Consulting,"Cloud, Infrastructure & Cybersecurity Services",Pune,https://www.varutra.com,https://www.varutra.com,,,manual,site did not respond to the check (timed out)
+Cyble India,"Cloud, Infrastructure & Cybersecurity Services",Bengaluru,https://cyble.com,https://cyble.com,,,manual,site did not respond to the check (timed out)
+CyberSRC,"Cloud, Infrastructure & Cybersecurity Services",Noida,https://www.cybersrcc.com,https://www.cybersrcc.com,,,manual,site did not respond to the check (SSLError)
+Larsen & Toubro Cloudfiniti,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.lntcloudfiniti.com,https://www.lntcloudfiniti.com,,,manual,site did not respond to the check (timed out)
+Galaxy Office Automation,"Cloud, Infrastructure & Cybersecurity Services",Mumbai,https://www.goapl.com,https://www.goapl.com,,,manual,site did not respond to the check (timed out)
+Godrej Infotech,SAP / ERP / CRM / Salesforce Partners,Mumbai,https://www.godrejinfotech.com,https://www.godrejinfotech.com,,,manual,custom careers page; no public feed found
+Intrigo Systems,SAP / ERP / CRM / Salesforce Partners,Bengaluru,https://www.intrigo.com,https://www.intrigo.com,,,manual,site did not respond to the check (ConnectionError)
+Cloud Odyssey,SAP / ERP / CRM / Salesforce Partners,Bengaluru,https://www.cloudodyssey.co,https://www.cloudodyssey.co,,,manual,site did not respond to the check (timed out)
+Cymetrix Software,SAP / ERP / CRM / Salesforce Partners,Mumbai,https://www.cymetrixsoft.com,https://www.cymetrixsoft.com,,,manual,site did not respond to the check (timed out)
+Kizzy Consulting,SAP / ERP / CRM / Salesforce Partners,Mumbai,https://www.kizzyconsulting.com,https://www.kizzyconsulting.com,,,manual,site did not respond to the check (timed out)
+Cloud Analogy,SAP / ERP / CRM / Salesforce Partners,Noida,https://www.cloudanalogy.com,https://www.cloudanalogy.com,,,manual,site did not respond to the check (timed out)
+Mirketa,SAP / ERP / CRM / Salesforce Partners,Noida,https://mirketa.com,https://mirketa.com,,,manual,custom careers page; no public feed found
+Gyansys,SAP / ERP / CRM / Salesforce Partners,Bengaluru / Indianapolis,https://www.gyansys.com,https://www.gyansys.com,,,manual,site did not respond to the check (timed out)
+Pinnacle Infotech,SAP / ERP / CRM / Salesforce Partners,Durgapur,https://www.pinnacleinfotech.com,https://www.pinnacleinfotech.com,,,manual,site did not respond to the check (timed out)
+TVS Next,SAP / ERP / CRM / Salesforce Partners,Chennai,https://www.tvsnext.io,https://www.tvsnext.io,,,manual,site did not respond to the check (HTTP 429)
+Hitachi Systems India,SAP / ERP / CRM / Salesforce Partners,New Delhi,https://www.hitachi-systems.co.in,https://www.hitachi-systems.co.in,,,manual,site did not respond to the check (timed out)
+VISTA InfoSystems,SAP / ERP / CRM / Salesforce Partners,Hyderabad,https://www.vistainfosystems.com,https://www.vistainfosystems.com,,,manual,site did not respond to the check (timed out)
+Plaut / Seidor India,SAP / ERP / CRM / Salesforce Partners,Mumbai,https://www.seidor.com,https://www.seidor.com,,,manual,site did not respond to the check (HTTP 403)
+Westernacher India,SAP / ERP / CRM / Salesforce Partners,Bengaluru,https://westernacher-consulting.com,https://westernacher-consulting.com,,,manual,site did not respond to the check (timed out)
+Applexus Technologies,SAP / ERP / CRM / Salesforce Partners,Thiruvananthapuram,https://www.applexus.com,https://www.applexus.com,,,manual,site did not respond to the check (timed out)
+VCERP Consulting,SAP / ERP / CRM / Salesforce Partners,Hyderabad,https://www.vcerp.com,https://www.vcerp.com,,,manual,custom careers page; no public feed found
+Rolling Arrays,SAP / ERP / CRM / Salesforce Partners,Bengaluru,https://rollingarrays.com,https://rollingarrays.com,,,manual,site did not respond to the check (timed out)
+TeamLease Digital,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.teamleasedigital.com,https://www.teamleasedigital.com,,,manual,site did not respond to the check (timed out)
+Quess IT Staffing,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.quesscorp.com,https://www.quesscorp.com,,,manual,site did not respond to the check (timed out)
+Randstad India,IT Staffing & Recruitment Consultancy,Chennai,https://www.randstad.in,https://www.randstad.in/jobs/,,,manual,site did not respond to the check (timed out)
+Adecco India,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.adecco.co.in,https://www.adecco.co.in,,,manual,site did not respond to the check (timed out)
+ManpowerGroup India / Experis,IT Staffing & Recruitment Consultancy,Gurugram,https://www.manpowergroup.co.in,https://www.manpowergroup.co.in,,,manual,site did not respond to the check (timed out)
+CIEL HR,IT Staffing & Recruitment Consultancy,Chennai,https://www.cielhr.com,https://www.cielhr.com,,,manual,site did not respond to the check (timed out)
+Xpheno,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.xpheno.com,https://www.xpheno.com,,,manual,site did not respond to the check (timed out)
+ABC Consultants,IT Staffing & Recruitment Consultancy,New Delhi,https://www.abcconsultants.in,https://www.abcconsultants.in,,,manual,site did not respond to the check (timed out)
+Michael Page India,IT Staffing & Recruitment Consultancy,Mumbai,https://www.michaelpage.co.in,https://www.michaelpage.co.in/jobs,,,manual,site did not respond to the check (timed out)
+Hays India,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.hays.co.in,https://www.hays.co.in/jobs,,,manual,site did not respond to the check (timed out)
+TEKsystems India (Allegis),IT Staffing & Recruitment Consultancy,Bengaluru,https://www.teksystems.com,https://careers.teksystems.com,,,manual,site did not respond to the check (timed out)
+Collabera,IT Staffing & Recruitment Consultancy,Vadodara / New Jersey,https://collabera.com,https://collabera.com,,,manual,site did not respond to the check (timed out)
+Careernet,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.careernet.co.in,https://www.careernet.co.in,,,manual,site did not respond to the check (timed out)
+Antal International India,IT Staffing & Recruitment Consultancy,Gurugram,https://www.antal.com,https://www.antal.com,,,manual,site did not respond to the check (timed out)
+Korn Ferry India,IT Staffing & Recruitment Consultancy,Mumbai,https://www.kornferry.com,https://www.kornferry.com,,,manual,site did not respond to the check (timed out)
+Spectrum Talent Management,IT Staffing & Recruitment Consultancy,Noida,https://www.stmpl.co.in,https://www.stmpl.co.in,,,manual,site did not respond to the check (timed out)
+Innovsource,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.innovsource.com,https://www.innovsource.com,,,manual,site did not respond to the check (timed out)
+Talent500 (ANSR),IT Staffing & Recruitment Consultancy,Bengaluru,https://talent500.co,https://talent500.co,,,manual,site did not respond to the check (timed out)
+Nityo Infotech,IT Staffing & Recruitment Consultancy,Mumbai / New Jersey,https://www.nityo.com,https://www.nityo.com,,,manual,site did not respond to the check (timed out)
+Diverse Lynx,IT Staffing & Recruitment Consultancy,Noida / New Jersey,https://www.diverselynx.com,https://www.diverselynx.com,,,manual,site did not respond to the check (timed out)
+Pyramid Consulting,IT Staffing & Recruitment Consultancy,Hyderabad / Atlanta,https://www.pyramidci.com,https://www.pyramidci.com,,,manual,site did not respond to the check (timed out)
+Artech Infosystems,IT Staffing & Recruitment Consultancy,Noida / New Jersey,https://artech.com,https://artech.com,,,manual,site did not respond to the check (timed out)
+Ampcus Tech,IT Staffing & Recruitment Consultancy,Hyderabad / Virginia,https://www.ampcus.com,https://www.ampcus.com,,,manual,site did not respond to the check (timed out)
+Kelly Services India,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.kellyservices.co.in,https://www.kellyservices.co.in,,,manual,site did not respond to the check (timed out)
+Robert Half India,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.roberthalf.com,https://www.roberthalf.com,,,manual,site did not respond to the check (timed out)
+Insight Global India,IT Staffing & Recruitment Consultancy,Bengaluru,https://insightglobal.com,https://insightglobal.com,,,manual,site did not respond to the check (timed out)
+Apex Systems India,IT Staffing & Recruitment Consultancy,Hyderabad,https://www.apexsystems.com,https://www.apexsystems.com,,,manual,site did not respond to the check (timed out)
+Genius Consultants,IT Staffing & Recruitment Consultancy,Kolkata,https://www.geniusconsultants.com,https://www.geniusconsultants.com,,,manual,site did not respond to the check (timed out)
+HuntingCube Recruitment,IT Staffing & Recruitment Consultancy,Gurugram,https://huntingcube.com,https://huntingcube.com,,,manual,site did not respond to the check (timed out)
+ScaleneWorks,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.scaleneworks.com,https://www.scaleneworks.com,,,manual,site did not respond to the check (timed out)
+Gi Group India,IT Staffing & Recruitment Consultancy,Bengaluru,https://in.gigroup.com,https://in.gigroup.com,,,manual,site did not respond to the check (timed out)
+PeopleStrong (RPO),IT Staffing & Recruitment Consultancy,Gurugram,https://www.peoplestrong.com,https://www.peoplestrong.com,,,manual,site did not respond to the check (timed out)
+Alp Consulting,IT Staffing & Recruitment Consultancy,Bengaluru,https://www.alp.consulting,https://www.alp.consulting,,,manual,site did not respond to the check (timed out)
+Integrated Personnel Services,IT Staffing & Recruitment Consultancy,Mumbai,https://www.ipsgroup.co.in,https://www.ipsgroup.co.in,,,manual,site did not respond to the check (timed out)
+Mynd Integrated Solutions,IT Staffing & Recruitment Consultancy,Gurugram,https://www.myndsolution.com,https://www.myndsolution.com,,,manual,site did not respond to the check (timed out)
+Synergy Resource Solutions (SRS),IT Staffing & Recruitment Consultancy,Mumbai,https://www.srs.co.in,https://www.srs.co.in,,,manual,site did not respond to the check (timed out)
+Dexian India (DISYS),IT Staffing & Recruitment Consultancy,Hyderabad,https://dexian.com,https://dexian.com,,,manual,site did not respond to the check (timed out)
+Sight Spectrum Technology,IT Staffing & Recruitment Consultancy,Hyderabad / Texas,https://www.sightspectrum.com,https://www.sightspectrum.com,,,manual,site did not respond to the check (timed out)
+LanceSoft India,IT Staffing & Recruitment Consultancy,Noida / Virginia,https://www.lancesoft.com,https://www.lancesoft.com,,,manual,site did not respond to the check (timed out)
+Mindlance India,IT Staffing & Recruitment Consultancy,Noida / New Jersey,https://www.mindlance.com,https://www.mindlance.com,,,manual,site did not respond to the check (timed out)
+Rangam Infotech,IT Staffing & Recruitment Consultancy,Vadodara / New Jersey,https://www.rangam.com,https://www.rangam.com,,,manual,site did not respond to the check (timed out)
+VDart,IT Staffing & Recruitment Consultancy,Trichy / Atlanta,https://www.vdart.com,https://www.vdart.com,,,manual,site did not respond to the check (timed out)
+Pratham Software (PSI),IT Staffing & Recruitment Consultancy,Jaipur,https://www.thepsi.com,https://www.thepsi.com,,,manual,site did not respond to the check (timed out)
+Teamware Solutions (Quess),IT Staffing & Recruitment Consultancy,Chennai,https://www.teamwaresolutions.net,https://www.teamwaresolutions.net,,,manual,site did not respond to the check (timed out)
+Kyndryl India (early careers),MNC IT Services (Large India Operations),Bengaluru / New York,https://www.kyndryl.com,https://www.kyndryl.com/us/en/careers,workday,https://kyndryl.wd5.myworkdayjobs.com/KyndrylEarlyCareers,connected,10 India jobs at setup (2026-10-14)

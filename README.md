@@ -69,6 +69,7 @@ notifications.py ── Telegram / email; a job is marked "notified" only after 
 | **Ashby** company boards | Official public Job Posting API | Free | Sarvam, Atlan. |
 | **Recruitee** company boards | Official public careers API | Free | Lenskart. |
 | **Workable** company boards | Public job widget API | Free | Apna, Tata 1mg. Workable limits bursts of requests, so it's fetched every 3 hours. |
+| **Workday** career sites | The JSON each public Workday careers page loads (its robots.txt allows careers paths) | Free | 15 sites from the company list, filtered to India. Results come by relevance, so the bot reads up to 3 pages per search every 2 hours. |
 | **SmartRecruiters** | Official public Posting API | Free | Keyword search within India for Bosch and Freshworks. The listing has no description, so these jobs score lower. |
 | **Remotive** | Public API | Free | Remote jobs only, published 24 hours late. Their terms ask for at most about 4 calls a day and a link back to Remotive (alerts link to the original posting). |
 | **RemoteOK** | Public API | Free | Remote jobs. Their terms ask you to credit Remote OK as the source. |
@@ -81,6 +82,21 @@ notifications.py ── Telegram / email; a job is marked "notified" only after 
 - Turn on each portal's own email or app job alerts.
 
 No tool finds every opening. The configured companies were checked on 2026-10-13 and returned live jobs, but boards change. A board that disappears is logged and skipped.
+
+---
+
+### Your company list (`config/companies.csv`)
+
+The bot reads `config/companies.csv` on every run. It holds 433 companies (IT services, consulting, BPM, analytics and more), each checked on 2026-10-14 to find which hiring system its careers page uses.
+
+| Column | Meaning |
+|---|---|
+| `system` | The hiring system found: `workday`, `greenhouse`, `smartrecruiters`, `lever`, `ashby`, `workable`, `recruitee`, or a name like Darwinbox when it has no public feed |
+| `feed` | What the bot reads: a Workday site URL, or the board name for the others |
+| `status` | `connected` = the bot reads it every run; anything else (`manual`) = skipped |
+| `note` | Why a company is manual, or how many jobs it had at setup |
+
+To add a company: add a row with `system`, `feed` and `status=connected`. To pause one: change its status to `manual`. At setup, 18 companies were connected (15 on Workday, such as Accenture, Genpact, DXC, Kyndryl and Synechron). Most others use their own careers pages or systems without a public feed (Oracle, Darwinbox, iCIMS, SuccessFactors), and about 140 websites refused or timed out on the automated check.
 
 ---
 
